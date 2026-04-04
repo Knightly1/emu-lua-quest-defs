@@ -875,10 +875,10 @@ function Mob:HasPet() end
 function Mob:HasProcs() end
 
 ---@return boolean
-function Mob:HasShieldEquiped() end
+function Mob:HasShieldEquipped() end
 
 ---@return boolean
-function Mob:HasTwoHandBluntEquiped() end
+function Mob:HasTwoHandBluntEquipped() end
 
 ---@return boolean
 function Mob:HasTwoHanderEquipped() end

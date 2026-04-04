@@ -611,7 +611,7 @@ function Client:GetRecipeMadeCount(recipe_id) end
 ---@param min_level number #
 ---@param max_level number #
 ---@return number[] # an array of spell ids
-function Client:GetScriableableSpells(min_level, max_level) end
+function Client:GetScribeableSpells(min_level, max_level) end
 
 ---@return number
 function Client:GetSkillPoints() end
