@@ -177,7 +177,7 @@ function Item:Focus_Type() end
 
 function Item:Fulfilment() end
 
-function Item:GetWorn_Type() end
+function Item:Worn_Type() end
 
 function Item:GuildFavor() end
 

@@ -121,7 +121,7 @@ function Bot:HasItemEquippedByID(item_id) end
 function Bot:IsGrouped() end
 
 ---@return boolean # TODO: definition of parameter
-function Bot:Sitting() end
+function Bot:IsSitting() end
 
 ---@param message string # TODO: definition of parameter
 function Bot:OwnerMessage(message) end

@@ -1294,7 +1294,7 @@ function eq.move_to(x, y, z, h, save_guard_spot) end
 ---@param task_id number # The task id to add to the active task list.
 function eq.next_task_in_set(task_set, task_id) end
 
-function eq.path_resume() end
+function eq.resume() end
 
 ---@param duration number #
 function eq.pause(duration) end

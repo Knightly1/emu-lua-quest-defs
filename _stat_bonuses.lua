@@ -235,7 +235,7 @@ function StatBonuses:FrontalBackstabMinDmg() end
 
 function StatBonuses:FrontalStunResist() end
 
-function StatBonuses:GetXPRateMod() end
+function StatBonuses:XPRateMod() end
 
 function StatBonuses:GiveDoubleAttack() end
 

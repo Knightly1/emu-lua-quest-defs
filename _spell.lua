@@ -82,7 +82,7 @@ function Spell:EnvironmentType() end
 ---@param i number # TODO: definition of parameter (and type this)
 function Spell:Formula(i) end
 
-function Spell:GetZoneType() end
+function Spell:ZoneType() end
 
 function Spell:GoodEffect() end
 
