@@ -206,9 +206,6 @@ function Client:DecreaseByID(type, amt) end
 function Client:DeleteItemInInventory(slot_id, quantity, update_client) end
 
 ---@param markdown string #
-function Client:DiaWnd(markdown) end
-
----@param markdown string #
 function Client:DialogueWindow(markdown) end
 
 function Client:DisableAreaEndRegen() end
@@ -1000,8 +997,6 @@ function Client:RewardFaction(id, amount) end
 
 ---@param commit_now? number #
 function Client:Save(commit_now) end
-
-function Client:SaveBackup() end
 
 ---@param spell_id number #
 ---@param slot number #

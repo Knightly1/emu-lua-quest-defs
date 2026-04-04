@@ -388,8 +388,6 @@ function Mob:FindType(type, offensive, threshold) end
 ---@param heading? number # TODO: definition of parameter
 function Mob:GMMove(x, y, z, heading) end
 
-function Mob:Gate() end
-
 ---@param id number # TODO: definition of parameter (and type this)
 ---@return number
 function Mob:GetAA(id) end
@@ -1155,9 +1153,6 @@ function Mob:SendWearChange(material_slot) end
 ---@param charges? number # TODO: definition of parameter
 ---@return boolean
 function Mob:SetAA(rank_id, new_value, charges) end
-
---- Syncronizes AA changes, saving and resending tables. Ideal to be called after SetAA
-function Mob:SyncAA() end
 
 ---@param value boolean # TODO: definition of parameter
 function Mob:SetAllowBeneficial(value) end

@@ -57,9 +57,6 @@ function ItemInst:GetItemID(slot) end
 
 function ItemInst:GetItemScriptID() end
 
----@param current_level number # TODO: definition of parameter
-function ItemInst:GetKillsNeeded(current_level) end
-
 function ItemInst:GetMaxEvolveLvl() end
 
 function ItemInst:GetPrice() end

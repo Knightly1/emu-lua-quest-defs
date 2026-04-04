@@ -1,12 +1,4 @@
 ---@meta
 
----TODO: definition for Encounter
----@class Encounter : Mob
+---@class Encounter
 Encounter = {}
-
---- gets encounter name
----@return string # Encounter name
-function Encounter:GetEncounterName() end
-
---- triggers encounter process
-function Encounter:Process() end
