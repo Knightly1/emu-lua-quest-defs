@@ -1,5 +1,5 @@
 ---@meta
 
 ---@class CorpseLootList
----@field Entries number # corpse IDs
+---@field entries number # corpse IDs
 CorpseLootList = {}

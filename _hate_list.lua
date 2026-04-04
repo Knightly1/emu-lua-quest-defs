@@ -1,5 +1,5 @@
 ---@meta
 
 ---@class HateList
----@field Entries number
+---@field entries number
 HateList = {}
