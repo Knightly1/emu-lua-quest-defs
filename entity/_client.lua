@@ -2,8 +2,6 @@
 
 ---A Client represents a connected player
 ---@class Client : Mob
----@field null boolean # returns true when a client does not exist
----@field valid boolean # returns false when a client is invalid
 Client = {}
 
 ---@return number

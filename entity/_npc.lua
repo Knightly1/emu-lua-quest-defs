@@ -2,8 +2,6 @@
 
 ---TODO: definition for NPC
 ---@class NPC : Mob
----@field null boolean # returns true when a npc does not exist
----@field valid boolean # returns false when a npc is invalid
 NPC = {}
 
 ---@param dist number # TODO: definition of parameter

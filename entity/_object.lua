@@ -1,9 +1,7 @@
 ---@meta
 
 ---TODO: definition for Object
----@class Object
----@field null boolean # returns true when an object does not exist
----@field valid boolean # returns false when an object is invalid
+---@class Object : Entity
 Object = {}
 
 function Object:ClearUser() end

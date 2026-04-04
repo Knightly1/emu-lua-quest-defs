@@ -1,9 +1,7 @@
 ---@meta
 
 ---TODO: definition for Corpse
----@class Corpse
----@field null boolean # returns true when a corpse does not exist
----@field valid boolean # returns false when a corpse is invalid
+---@class Corpse : Mob
 Corpse = {}
 
 ---@param itemnum number # TODO: definition of parameter
