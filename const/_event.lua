@@ -6,6 +6,7 @@
 ---@field trade number # 1 being given an item or money
 ---@field death number # 2 being killed
 ---@field spawn number # 3 triggered when we first spawn
+---@field attack number # 4 being attacked (resets after an interval of not being attacked)
 ---@field combat number # 5 being attacked or attacking (resets after an interval of not being attacked)
 ---@field aggro number # 6 entering combat mode due to a PC attack
 ---@field slay number # 7 killing a PC
@@ -96,7 +97,7 @@
 ---@field inspect number
 ---@field task_before_update number
 ---@field aa_buy number
----@field aa_gain number
+---@field aa_gained number
 ---@field payload number
 ---@field level_down number
 ---@field gm_command number
