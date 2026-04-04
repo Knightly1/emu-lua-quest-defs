@@ -26,8 +26,8 @@
 ---@field FocusEffects number
 ---@field PetSpells number
 ---@field HealOverTime number
----@field Unknown25 number
----@field Unknown26 number
----@field Unknown27 number
----@field Unknown28 number
+---@field ItemSpeech number
+---@field Strikethrough number
+---@field Stuns number
+---@field BardSongsOnPets number
 Filter = {}
