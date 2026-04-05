@@ -311,16 +311,10 @@ function EntityList:MessageStatus(guild_dbid, min_status, type, message) end
 ---@param opener Mob # TODO: definition of parameter
 function EntityList:OpenDoorsNear(opener) end
 
----@param who Mob # TODO: definition of parameter
-function EntityList:RemoveFromHateLists(who) end
-
 ---@overload fun(who: Mob): nil
 ---@param who Mob # TODO: definition of parameter
 ---@param set_to_one boolean # TODO: definition of parameter
 function EntityList:RemoveFromHateLists(who, set_to_one) end
-
----@param mob Mob # TODO: definition of parameter
-function EntityList:RemoveFromTargets(mob) end
 
 ---@overload fun(mob: Mob): nil
 ---@param mob Mob # TODO: definition of parameter

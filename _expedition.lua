@@ -67,24 +67,12 @@ function Expedition:RemoveCompass() end
 ---@param event_name string # TODO: definition of parameter
 function Expedition:RemoveLockout(event_name) end
 
----@param zone_id number # TODO: definition of parameter
----@param x number # TODO: definition of parameter
----@param y number # TODO: definition of parameter
----@param z number # TODO: definition of parameter
-function Expedition:SetCompass(zone_id, x, y, z) end
-
+---@overload fun(zone_id: number, x: number, y: number, z: number): nil
 ---@param zone_name string # TODO: definition of parameter
 ---@param x number # TODO: definition of parameter
 ---@param y number # TODO: definition of parameter
 ---@param z number # TODO: definition of parameter
 function Expedition:SetCompass(zone_name, x, y, z) end
-
----@param lock_expedition boolean # TODO: definition of parameter
-function Expedition:SetLocked(lock_expedition) end
-
----@param lock_expedition boolean # TODO: definition of parameter
----@param lock_msg number # TODO: definition of parameter
-function Expedition:SetLocked(lock_expedition, lock_msg) end
 
 ---@overload fun(lock_expedition: boolean): nil
 ---@overload fun(lock_expedition: boolean, lock_msg: number): nil
@@ -104,13 +92,7 @@ function Expedition:SetLootEventBySpawnID(spawn_id, event_name) end
 ---@param enable boolean # TODO: definition of parameter
 function Expedition:SetReplayLockoutOnMemberJoin(enable) end
 
----@param zone_id number # TODO: definition of parameter
----@param x number # TODO: definition of parameter
----@param y number # TODO: definition of parameter
----@param z number # TODO: definition of parameter
----@param heading number # TODO: definition of parameter
-function Expedition:SetSafeReturn(zone_id, x, y, z, heading) end
-
+---@overload fun(zone_id: number, x: number, y: number, z: number, heading: number): nil
 ---@param zone_name string # TODO: definition of parameter
 ---@param x number # TODO: definition of parameter
 ---@param y number # TODO: definition of parameter
@@ -129,10 +111,6 @@ function Expedition:SetSwitchID(dz_switch_id) end
 ---@param z number # TODO: definition of parameter
 ---@param heading number # TODO: definition of parameter
 function Expedition:SetZoneInLocation(x, y, z, heading) end
-
----@param event_name string # TODO: definition of parameter
----@param duration number # TODO: definition of parameter
-function Expedition:UpdateLockoutDuration(event_name, duration) end
 
 ---@overload fun(event_name: string, duration: uint32_t): nil
 ---@param event_name string # TODO: definition of parameter

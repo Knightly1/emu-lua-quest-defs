@@ -45,13 +45,10 @@ function ItemInst:GetExp() end
 ---@return number # ID of item
 function ItemInst:GetID() end
 
+---@overload fun(): Item
 ---@param slot number # TODO: definition of parameter
----@return Item
+---@return ItemInst
 function ItemInst:GetItem(slot) end
-
----@overload fun(slot_id: number): ItemInst
----@return Item
-function ItemInst:GetItem() end
 
 ---@param slot number # TODO: definition of parameter
 function ItemInst:GetItemID(slot) end
@@ -74,9 +71,6 @@ function ItemInst:IsAmmo() end
 function ItemInst:IsAugmentable() end
 
 function ItemInst:IsAugmented() end
-
----@param slot_id number # TODO: definition of parameter
-function ItemInst:IsEquipable(slot_id) end
 
 ---@overload fun(slot_id: number): boolean
 ---@param race number # TODO: definition of parameter
@@ -102,18 +96,8 @@ function ItemInst:SetCharges(charges) end
 ---@param color number # TODO: definition of parameter
 function ItemInst:SetColor(color) end
 
----@param identifier string # TODO: definition of parameter
----@param value boolean # TODO: definition of parameter
-function ItemInst:SetCustomData(identifier, value) end
-
----@param identifier string # TODO: definition of parameter
----@param value number # TODO: definition of parameter
-function ItemInst:SetCustomData(identifier, value) end
-
----@param identifier string # TODO: definition of parameter
----@param value number # TODO: definition of parameter
-function ItemInst:SetCustomData(identifier, value) end
-
+---@overload fun(identifier: string, value: boolean): nil
+---@overload fun(identifier: string, value: number): nil
 ---@param identifier string # TODO: definition of parameter
 ---@param value string # TODO: definition of parameter
 function ItemInst:SetCustomData(identifier, value) end

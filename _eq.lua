@@ -940,11 +940,8 @@ function eq.get_char_name_by_id(char_id) end
 ---@return number[] # returns an array of character_id.
 function eq.get_characters_in_instance(instance_id) end
 
----@param class_id number #
----@param level number #
-function eq.get_class_name(class_id, level) end
-
 ---@overload fun(class_id: number): string
+---@overload fun(class_id: number, level: number): nil
 ---@param class_id number #
 ---@param level? number
 function eq.get_class_name(class_id, level) end
@@ -985,10 +982,6 @@ function eq.get_entity_list() end
 
 ---@param damage_type number #
 function eq.get_environmental_damage_name(damage_type) end
-
----@param character_id number #
----@param zone_id number #
-function eq.get_exp_modifier_by_char_id(character_id, zone_id) end
 
 ---@overload fun(character_id: number, zone_id: number): number
 ---@param character_id number #
@@ -1122,10 +1115,6 @@ function eq.get_spell(spell_id) end
 
 ---@param spell_id number #
 function eq.get_spell_name(spell_id) end
-
----@param spell_id number #
----@param stat_identifier string #
-function eq.get_spell_stat(spell_id, stat_identifier) end
 
 ---@overload fun(spell_id: number, stat_identifier: string): number
 ---@param spell_id number #
@@ -1353,21 +1342,9 @@ function eq.log_combat(message) end
 
 function eq.map_opcodes() end
 
----@param type number #
----@param message string #
----@param duration number #
-function eq.marquee(type, message, duration) end
-
----@param type number #
----@param priority number #
----@param fade_in number #
----@param fade_out number #
----@param duration number #
----@param message string #
-function eq.marquee(type, priority, fade_in, fade_out, duration, message) end
-
 ---@overload fun(type: number, message: string): nil
 ---@overload fun(type: number, message: string, duration: number): nil
+---@overload fun(type: number, priority: number, fade_in: number, fade_out: number, duration: number, message: string): nil
 ---@param type number #
 ---@param priority number
 ---@param fade_in? number
@@ -1380,12 +1357,8 @@ function eq.marquee(type, priority, fade_in, fade_out, duration, message) end
 ---@param item_id number #
 function eq.merchant_count_item(npc_id, item_id) end
 
----@param npc_id number #
----@param item_id number #
----@param quantity number #
-function eq.merchant_set_item(npc_id, item_id, quantity) end
-
 ---@overload fun(npc_id: number, item_id: number): nil
+---@overload fun(npc_id: number, item_id: number, quantity: number): nil
 ---@param npc_id number #
 ---@param item_id number #
 ---@param quantity? number
@@ -1398,17 +1371,6 @@ function eq.message(color, message) end
 ---@param stat string #
 ---@param value string #
 function eq.modify_npc_stat(stat, value) end
-
----@param x number #
----@param y number #
----@param z number #
----@param h number #
-function eq.move_to(x, y, z, h) end
-
----@param x number #
----@param y number #
----@param z number #
-function eq.move_to(x, y, z) end
 
 ---@overload fun(x: number, y: number, z: number): nil
 ---@overload fun(x: number, y: number, z: number, h: number): nil
@@ -1431,27 +1393,10 @@ function eq.pause(duration) end
 ---@param timer string #
 function eq.pause_timer(timer) end
 
----@param title string #
----@param text string #
----@param id number #
----@param buttons number #
----@param duration number #
-function eq.popup(title, text, id, buttons, duration) end
-
----@param title string #
----@param text string #
----@param id number #
----@param buttons number #
-function eq.popup(title, text, id, buttons) end
-
----@param title string #
----@param text string #
----@param id number #
-function eq.popup(title, text, id) end
-
 ---@overload fun(title: string, text: string): nil
 ---@overload fun(title: string, text: string, id: number): nil
 ---@overload fun(title: string, text: string, id: number, buttons: number): nil
+---@overload fun(title: string, text: string, id: number, buttons: number, duration: number): nil
 ---@param title string #
 ---@param text string #
 ---@param id? number
@@ -1459,10 +1404,8 @@ function eq.popup(title, text, id) end
 ---@param duration? number
 function eq.popup(title, text, id, buttons, duration) end
 
----@param break_count number #
-function eq.popup_break(break_count) end
-
 ---@overload fun(): string
+---@overload fun(break_count: number): nil
 ---@param break_count? number
 function eq.popup_break(break_count) end
 
@@ -1473,15 +1416,10 @@ function eq.popup_center_message(message) end
 ---@param message number #
 function eq.popup_color_message(color, message) end
 
----@param indent_count number #
-function eq.popup_indent(indent_count) end
-
 ---@overload fun(): string
+---@overload fun(indent_count: number): nil
 ---@param indent_count? number
 function eq.popup_indent(indent_count) end
-
----@param link number #
-function eq.popup_link(link) end
 
 ---@overload fun(link: string): string
 ---@param link number #
@@ -1491,10 +1429,8 @@ function eq.popup_link(link, message) end
 ---@param message number #
 function eq.popup_table(message) end
 
----@param message number #
-function eq.popup_table_cell(message) end
-
 ---@overload fun(): string
+---@overload fun(message: number): nil
 ---@param message? string
 function eq.popup_table_cell(message) end
 
@@ -1560,9 +1496,6 @@ function eq.unregister_player_event(name, event_type) end
 
 function eq.reloadzonestaticdata() end
 
----@param char_id number #
-function eq.remove_all_expedition_lockouts_by_char_id(char_id) end
-
 ---@overload fun(char_id: number): nil
 ---@param char_id number #
 ---@param expedition_name string #
@@ -1585,9 +1518,6 @@ function eq.remove_from_instance(instance_id) end
 ---@param instance_id number #
 ---@param char_id number #
 function eq.remove_from_instance_by_char_id(instance_id, char_id) end
-
----@param item_id number #
-function eq.remove_item(item_id) end
 
 ---@overload fun(item_id: number): nil
 ---@param item_id number #
@@ -1626,24 +1556,12 @@ function eq.resume_timer(timer) end
 
 function eq.safe_move() end
 
----@param phrase string #
----@param silent boolean #
----@param link_name string #
-function eq.say_link(phrase, silent, link_name) end
-
----@param phrase string #
----@param silent boolean #
-function eq.say_link(phrase, silent) end
-
 ---@overload fun(text: string): string
 ---@overload fun(text: string, silent: boolean): string
 ---@param text string
 ---@param silent? boolean
 ---@param link_name? string
 function eq.say_link(text, silent, link_name) end
-
----@param max number #
-function eq.scribe_spells(max) end
 
 ---@overload fun(max: number): number
 ---@param max number #
@@ -1659,13 +1577,8 @@ function eq.seconds_to_time(duration) end
 ---@param message string #
 function eq.send_mail(to, from, subject, message) end
 
----@param character_id number #
----@param zone_id number #
----@param aa_modifier number #
----@param instance_version number #
-function eq.set_aa_exp_modifier_by_char_id(character_id, zone_id, aa_modifier, instance_version) end
-
 ---@overload fun(character_id: number, zone_id: number, aa_modifier: number): nil
+---@overload fun(character_id: number, zone_id: number, aa_modifier: number, instance_version: number): nil
 ---@param character_id number #
 ---@param zone_id number #
 ---@param aa_modifier number #
@@ -1680,24 +1593,15 @@ function eq.set_anim(npc_type, anim_num) end
 ---@param enabled boolean #
 function eq.set_content_flag(flag_name, enabled) end
 
----@param bucket_key string #
----@param bucket_value string #
----@param expires_at string #
-function eq.set_data(bucket_key, bucket_value, expires_at) end
-
 ---@overload fun(bucket_key: string, bucket_value: string): nil
+---@overload fun(bucket_key: string, bucket_value: string, expires_at: string): nil
 ---@param bucket_key string #
 ---@param bucket_value string #
 ---@param expires_at? string
 function eq.set_data(bucket_key, bucket_value, expires_at) end
 
----@param character_id number #
----@param zone_id number #
----@param exp_modifier number #
----@param instance_version number #
-function eq.set_exp_modifier_by_char_id(character_id, zone_id, exp_modifier, instance_version) end
-
 ---@overload fun(character_id: number, zone_id: number, exp_modifier: number): nil
+---@overload fun(character_id: number, zone_id: number, exp_modifier: number, instance_version: number): nil
 ---@param character_id number #
 ---@param zone_id number #
 ---@param exp_modifier number #
@@ -1723,25 +1627,9 @@ function eq.set_next_hp_event(hp) end
 ---@param hp number #
 function eq.set_next_inc_hp_event(hp) end
 
----@param min_x number #
----@param max_x number #
----@param min_y number #
----@param max_y number #
----@param min_z number #
----@param max_z number #
----@param say boolean #
-function eq.set_proximity(min_x, max_x, min_y, max_y, min_z, max_z, say) end
-
----@param min_x number #
----@param max_x number #
----@param min_y number #
----@param max_y number #
----@param min_z number #
----@param max_z number #
-function eq.set_proximity(min_x, max_x, min_y, max_y, min_z, max_z) end
-
 ---@overload fun(min_x: number, max_x: number, min_y: number, max_y: number): nil
 ---@overload fun(min_x: number, max_x: number, min_y: number, max_y: number, min_z: number, max_z: number): nil
+---@overload fun(min_x: number, max_x: number, min_y: number, max_y: number, min_z: number, max_z: number, say: boolean): nil
 ---@param min_x number #
 ---@param max_x number #
 ---@param min_y number #
@@ -1758,12 +1646,8 @@ function eq.set_rule(rule_name, rule_value) end
 ---@param sky number #
 function eq.set_sky(sky) end
 
----@param hour number #
----@param min number #
----@param update_world boolean #
-function eq.set_time(hour, min, update_world) end
-
 ---@overload fun(hour: number, min: number): nil
+---@overload fun(hour: number, min: number, update_world: boolean): nil
 ---@param hour number #
 ---@param min number #
 ---@param update_world? boolean
@@ -1808,30 +1692,11 @@ function eq.start(wp) end
 
 function eq.stop() end
 
----@param enc Encounter #
-function eq.stop_all_timers(enc) end
-
-function eq.stop_all_timers() end
-
----@param inst ItemInst #
-function eq.stop_all_timers(inst) end
-
 ---@overload fun(): nil
 ---@param mob Mob #
 function eq.stop_all_timers(mob) end
 
 function eq.stop_follow() end
-
----@param timer string #
----@param mob Mob #
-function eq.stop_timer(timer, mob) end
-
----@param timer string #
----@param enc Encounter #
-function eq.stop_timer(timer, enc) end
-
----@param timer string #
-function eq.stop_timer(timer) end
 
 ---@overload fun(timer: string): nil
 ---@param timer string #
@@ -1860,20 +1725,14 @@ function eq.summon_buried_player_corpse(char_id, x, y, z, h) end
 ---@param zone_id number #
 function eq.target_global(name, value, duration, npc_id, char_id, zone_id) end
 
----@param table Object #
----@param ignore_cooldown boolean #
-function eq.task_selector(table, ignore_cooldown) end
-
 ---@overload fun(table: table): nil
+---@overload fun(table: Object, ignore_cooldown: boolean): nil
 ---@param table table #
 ---@param ignore_cooldown? boolean
 function eq.task_selector(table, ignore_cooldown) end
 
----@param task_set number # The task set to check for active tasks.
----@param ignore_cooldown boolean #
-function eq.task_set_selector(task_set, ignore_cooldown) end
-
 ---@overload fun(task_set: number): nil
+---@overload fun(task_set: number, ignore_cooldown: boolean): nil
 ---@param task_set number # The task set to check for active tasks.
 ---@param ignore_cooldown? boolean
 function eq.task_set_selector(task_set, ignore_cooldown) end
@@ -1890,11 +1749,8 @@ function eq.toggle_spawn_event(event_id, enable, strict, reset) end
 ---@param entity_id number #
 function eq.track_npc(entity_id) end
 
----@param max number #
----@param min number #
-function eq.train_discs(max, min) end
-
 ---@overload fun(max: number): number
+---@overload fun(max: number, min: number): nil
 ---@param max number #
 ---@param min? number
 function eq.train_discs(max, min) end
@@ -1942,13 +1798,6 @@ function eq.whisper(message) end
 ---@param str string #
 function eq.world_emote(type, str) end
 
----@param theme_id number # LDON Theme ID
----@param min_status number #
-function eq.world_wide_add_ldon_loss(theme_id, min_status) end
-
----@param theme_id number # LDON Theme ID
-function eq.world_wide_add_ldon_loss(theme_id) end
-
 ---@overload fun(theme_id: number): nil
 ---@overload fun(theme_id: number, min_status: number): nil
 ---@param theme_id number # LDON Theme ID
@@ -1956,51 +1805,22 @@ function eq.world_wide_add_ldon_loss(theme_id) end
 ---@param max_status number #
 function eq.world_wide_add_ldon_loss(theme_id, min_status, max_status) end
 
----@param theme_id number # LDON Theme ID
----@param points number #
----@param min_status number #
----@param max_status number #
-function eq.world_wide_add_ldon_points(theme_id, points, min_status, max_status) end
-
----@param theme_id number # LDON Theme ID
----@param points number #
-function eq.world_wide_add_ldon_points(theme_id, points) end
-
 ---@overload fun(theme_id: number, points: number): nil
 ---@overload fun(theme_id: number, points: number, min_status: number): nil
+---@overload fun(theme_id: number, points: number, min_status: number, max_status: number): nil
 ---@param theme_id number # LDON Theme ID
 ---@param points number #
 ---@param min_status? number #
 ---@param max_status? number
 function eq.world_wide_add_ldon_points(theme_id, points, min_status, max_status) end
 
----@param theme_id number # LDON Theme ID
----@param min_status number #
----@param max_status number #
-function eq.world_wide_add_ldon_win(theme_id, min_status, max_status) end
-
----@param theme_id number # LDON Theme ID
----@param min_status number #
-function eq.world_wide_add_ldon_win(theme_id, min_status) end
-
 ---@overload fun(theme_id: number): nil
 ---@overload fun(theme_id: number, min_status: number): nil
+---@overload fun(theme_id: number, min_status: number, max_status: number): nil
 ---@param theme_id number # LDON Theme ID
 ---@param min_status? number
 ---@param max_status? number
 function eq.world_wide_add_ldon_win(theme_id, min_status, max_status) end
-
----@param task_id number # The task id to add to the active task list.
----@param enforce_level_requirement boolean #
-function eq.world_wide_assign_task(task_id, enforce_level_requirement) end
-
----@param task_id number # The task id to add to the active task list.
-function eq.world_wide_assign_task(task_id) end
-
----@param task_id number # The task id to add to the active task list.
----@param enforce_level_requirement boolean #
----@param min_status number #
-function eq.world_wide_assign_task(task_id, enforce_level_requirement, min_status) end
 
 ---@overload fun(task_id: number): nil
 ---@overload fun(task_id: number, enforce_level_requirement: boolean): nil
@@ -2011,43 +1831,21 @@ function eq.world_wide_assign_task(task_id, enforce_level_requirement, min_statu
 ---@param max_status number #
 function eq.world_wide_assign_task(task_id, enforce_level_requirement, min_status, max_status) end
 
----@param spell_id number #
----@param min_status number #
----@param max_status number #
-function eq.world_wide_cast_spell(spell_id, min_status, max_status) end
-
----@param spell_id number #
----@param min_status number #
-function eq.world_wide_cast_spell(spell_id, min_status) end
-
 ---@overload fun(spell_id: number): nil
 ---@overload fun(spell_id: number, min_status: number): nil
+---@overload fun(spell_id: number, min_status: number, max_status: number): nil
 ---@param spell_id number #
 ---@param min_status? number
 ---@param max_status? number
 function eq.world_wide_cast_spell(spell_id, min_status, max_status) end
 
----@param message string #
----@param min_status number #
----@param max_status number #
-function eq.world_wide_dialogue_window(message, min_status, max_status) end
-
----@param message string #
-function eq.world_wide_dialogue_window(message) end
-
 ---@overload fun(message: string): nil
 ---@overload fun(message: string, min_status: number): nil
+---@overload fun(message: string, min_status: number, max_status: number): nil
 ---@param message string #
 ---@param min_status? number #
 ---@param max_status? number
 function eq.world_wide_dialogue_window(message, min_status, max_status) end
-
----@param task_id number # The task id to add to the active task list.
-function eq.world_wide_disable_task(task_id) end
-
----@param task_id number # The task id to add to the active task list.
----@param min_status number #
-function eq.world_wide_disable_task(task_id, min_status) end
 
 ---@overload fun(task_id: number): nil
 ---@overload fun(task_id: number, min_status: number): nil
@@ -2056,52 +1854,21 @@ function eq.world_wide_disable_task(task_id, min_status) end
 ---@param max_status number #
 function eq.world_wide_disable_task(task_id, min_status, max_status) end
 
----@param task_id number # The task id to add to the active task list.
----@param min_status number #
----@param max_status number #
-function eq.world_wide_enable_task(task_id, min_status, max_status) end
-
----@param task_id number # The task id to add to the active task list.
-function eq.world_wide_enable_task(task_id) end
-
 ---@overload fun(task_id: number): nil
 ---@overload fun(task_id: number, min_status: number): nil
+---@overload fun(task_id: number, min_status: number, max_status: number): nil
 ---@param task_id number # The task id to add to the active task list.
 ---@param min_status? number #
 ---@param max_status? number
 function eq.world_wide_enable_task(task_id, min_status, max_status) end
 
----@param task_id number # The task id to add to the active task list.
----@param min_status number #
----@param max_status number #
-function eq.world_wide_fail_task(task_id, min_status, max_status) end
-
----@param task_id number # The task id to add to the active task list.
-function eq.world_wide_fail_task(task_id) end
-
 ---@overload fun(task_id: number): nil
 ---@overload fun(task_id: number, min_status: number): nil
+---@overload fun(task_id: number, min_status: number, max_status: number): nil
 ---@param task_id number # The task id to add to the active task list.
 ---@param min_status? number #
 ---@param max_status? number
 function eq.world_wide_fail_task(task_id, min_status, max_status) end
-
----@param type number #
----@param priority number #
----@param fade_in number #
----@param fade_out number #
----@param duration number #
----@param message string #
-function eq.world_wide_marquee(type, priority, fade_in, fade_out, duration, message) end
-
----@param type number #
----@param priority number #
----@param fade_in number #
----@param fade_out number #
----@param duration number #
----@param message string #
----@param min_status number #
-function eq.world_wide_marquee(type, priority, fade_in, fade_out, duration, message, min_status) end
 
 ---@overload fun(type: number, priority: number, fade_in: number, fade_out: number, duration: number, message: string): nil
 ---@overload fun(type: number, priority: number, fade_in: number, fade_out: number, duration: number, message: string, min_status: number): nil
@@ -2115,15 +1882,6 @@ function eq.world_wide_marquee(type, priority, fade_in, fade_out, duration, mess
 ---@param max_status number #
 function eq.world_wide_marquee(type, priority, fade_in, fade_out, duration, message, min_status, max_status) end
 
----@param type number #
----@param message string #
-function eq.world_wide_message(type, message) end
-
----@param type number #
----@param message string #
----@param min_status number #
-function eq.world_wide_message(type, message, min_status) end
-
 ---@overload fun(type: number, message: string): nil
 ---@overload fun(type: number, message: string, min_status: number): nil
 ---@param type number #
@@ -2132,27 +1890,13 @@ function eq.world_wide_message(type, message, min_status) end
 ---@param max_status number #
 function eq.world_wide_message(type, message, min_status, max_status) end
 
----@param zone_short_name string #
-function eq.world_wide_move(zone_short_name) end
-
----@param zone_short_name string #
----@param min_status number #
----@param max_status number #
-function eq.world_wide_move(zone_short_name, min_status, max_status) end
-
 ---@overload fun(zone_short_name: string): nil
 ---@overload fun(zone_short_name: string, min_status: number): nil
+---@overload fun(zone_short_name: string, min_status: number, max_status: number): nil
 ---@param zone_short_name string #
 ---@param min_status? number #
 ---@param max_status? number
 function eq.world_wide_move(zone_short_name, min_status, max_status) end
-
----@param instance_id number #
----@param min_status number #
-function eq.world_wide_move_instance(instance_id, min_status) end
-
----@param instance_id number #
-function eq.world_wide_move_instance(instance_id) end
 
 ---@overload fun(instance_id: number): nil
 ---@overload fun(instance_id: number, min_status: number): nil
@@ -2161,42 +1905,21 @@ function eq.world_wide_move_instance(instance_id) end
 ---@param max_status number #
 function eq.world_wide_move_instance(instance_id, min_status, max_status) end
 
----@param theme_id number # LDON Theme ID
----@param min_status number #
----@param max_status number #
-function eq.world_wide_remove_ldon_loss(theme_id, min_status, max_status) end
-
----@param theme_id number # LDON Theme ID
-function eq.world_wide_remove_ldon_loss(theme_id) end
-
 ---@overload fun(theme_id: number): nil
 ---@overload fun(theme_id: number, min_status: number): nil
+---@overload fun(theme_id: number, min_status: number, max_status: number): nil
 ---@param theme_id number # LDON Theme ID
 ---@param min_status? number #
 ---@param max_status? number
 function eq.world_wide_remove_ldon_loss(theme_id, min_status, max_status) end
 
----@param theme_id number # LDON Theme ID
----@param min_status number #
----@param max_status number #
-function eq.world_wide_remove_ldon_win(theme_id, min_status, max_status) end
-
----@param theme_id number # LDON Theme ID
-function eq.world_wide_remove_ldon_win(theme_id) end
-
 ---@overload fun(theme_id: number): nil
 ---@overload fun(theme_id: number, min_status: number): nil
+---@overload fun(theme_id: number, min_status: number, max_status: number): nil
 ---@param theme_id number # LDON Theme ID
 ---@param min_status? number #
 ---@param max_status? number
 function eq.world_wide_remove_ldon_win(theme_id, min_status, max_status) end
-
----@param spell_id number #
-function eq.world_wide_remove_spell(spell_id) end
-
----@param spell_id number #
----@param min_status number #
-function eq.world_wide_remove_spell(spell_id, min_status) end
 
 ---@overload fun(spell_id: number): nil
 ---@overload fun(spell_id: number, min_status: number): nil
@@ -2205,53 +1928,26 @@ function eq.world_wide_remove_spell(spell_id, min_status) end
 ---@param max_status number #
 function eq.world_wide_remove_spell(spell_id, min_status, max_status) end
 
----@param task_id number # The task id to add to the active task list.
-function eq.world_wide_remove_task(task_id) end
-
----@param task_id number # The task id to add to the active task list.
----@param min_status number #
----@param max_status number #
-function eq.world_wide_remove_task(task_id, min_status, max_status) end
-
 ---@overload fun(task_id: number): nil
 ---@overload fun(task_id: number, min_status: number): nil
+---@overload fun(task_id: number, min_status: number, max_status: number): nil
 ---@param task_id number # The task id to add to the active task list.
 ---@param min_status? number #
 ---@param max_status? number
 function eq.world_wide_remove_task(task_id, min_status, max_status) end
 
----@param task_id number # The task id to add to the active task list.
----@param activity_id number #
----@param min_status number #
----@param max_status number #
-function eq.world_wide_reset_activity(task_id, activity_id, min_status, max_status) end
-
----@param task_id number # The task id to add to the active task list.
----@param activity_id number #
----@param min_status number #
-function eq.world_wide_reset_activity(task_id, activity_id, min_status) end
-
 ---@overload fun(task_id: number, activity_id: number): nil
 ---@overload fun(task_id: number, activity_id: number, min_status: number): nil
+---@overload fun(task_id: number, activity_id: number, min_status: number, max_status: number): nil
 ---@param task_id number # The task id to add to the active task list.
 ---@param activity_id number #
 ---@param min_status? number
 ---@param max_status? number
 function eq.world_wide_reset_activity(task_id, activity_id, min_status, max_status) end
 
----@param variable_name string #
----@param variable_value string #
----@param min_status number #
----@param max_status number #
-function eq.world_wide_set_entity_variable_client(variable_name, variable_value, min_status, max_status) end
-
----@param variable_name string #
----@param variable_value string #
----@param min_status number #
-function eq.world_wide_set_entity_variable_client(variable_name, variable_value, min_status) end
-
 ---@overload fun(variable_name: string, variable_value: string): nil
 ---@overload fun(variable_name: string, variable_value: string, min_status: number): nil
+---@overload fun(variable_name: string, variable_value: string, min_status: number, max_status: number): nil
 ---@param variable_name string #
 ---@param variable_value string #
 ---@param min_status? number
@@ -2261,13 +1957,6 @@ function eq.world_wide_set_entity_variable_client(variable_name, variable_value,
 ---@param variable_name string #
 ---@param variable_value string #
 function eq.world_wide_set_entity_variable_npc(variable_name, variable_value) end
-
----@param signal number #
----@param min_status number #
-function eq.world_wide_signal_client(signal, min_status) end
-
----@param signal number #
-function eq.world_wide_signal_client(signal) end
 
 ---@overload fun(signal_id: number): nil
 ---@overload fun(signal_id: number, min_status: number): nil
@@ -2279,26 +1968,10 @@ function eq.world_wide_signal_client(signal, min_status, max_status) end
 ---@param signal number #
 function eq.world_wide_signal_npc(signal) end
 
----@param task_id number # The task id to add to the active task list.
----@param activity_id number #
-function eq.world_wide_update_activity(task_id, activity_id) end
-
----@param task_id number # The task id to add to the active task list.
----@param activity_id number #
----@param activity_count number #
----@param min_status number #
-function eq.world_wide_update_activity(task_id, activity_id, activity_count, min_status) end
-
----@param task_id number # The task id to add to the active task list.
----@param activity_id number #
----@param activity_count number #
----@param min_status number #
----@param max_status number #
-function eq.world_wide_update_activity(task_id, activity_id, activity_count, min_status, max_status) end
-
 ---@overload fun(task_id: number, activity_id: number): nil
 ---@overload fun(task_id: number, activity_id: number, activity_count: number): nil
 ---@overload fun(task_id: number, activity_id: number, activity_count: number, min_status: number): nil
+---@overload fun(task_id: number, activity_id: number, activity_count: number, min_status: number, max_status: number): nil
 ---@param task_id number # The task id to add to the active task list.
 ---@param activity_id number #
 ---@param activity_count? number #

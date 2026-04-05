@@ -12,12 +12,8 @@ function Group:CastGroupSpell(caster, spell_id) end
 
 function Group:DisbandGroup() end
 
----@param expedition_name string # TODO: definition of parameter
----@param event_name string # TODO: definition of parameter
----@param max_check_count number # TODO: definition of parameter
-function Group:DoesAnyMemberHaveExpeditionLockout(expedition_name, event_name, max_check_count) end
-
 ---@overload fun(expedition_name: string, event_name: string): boolean
+---@overload fun(expedition_name: string, event_name: string, max_check_count: number): nil
 ---@param expedition_name string # TODO: definition of parameter
 ---@param event_name string # TODO: definition of parameter
 ---@param max_check_count? number
@@ -44,12 +40,8 @@ function Group:GetTotalGroupDamage(other) end
 
 function Group:GroupCount() end
 
----@param sender Mob # TODO: definition of parameter
----@param language number # TODO: definition of parameter
----@param message string # TODO: definition of parameter
-function Group:GroupMessage(sender, language, message) end
-
 ---@overload fun(sender: Mob, message: string): nil
+---@overload fun(sender: Mob, language: number, message: string): nil
 ---@param sender Mob # TODO: definition of parameter
 ---@param language_id number
 ---@param message? string # TODO: definition of parameter
@@ -68,14 +60,8 @@ function Group:SetLeader(leader) end
 ---@param other Mob # TODO: definition of parameter
 function Group:SplitExp(exp, other) end
 
----@param copper number # TODO: definition of parameter
----@param silver number # TODO: definition of parameter
----@param gold number # TODO: definition of parameter
----@param platinum number # TODO: definition of parameter
----@param splitter Client # TODO: definition of parameter
-function Group:SplitMoney(copper, silver, gold, platinum, splitter) end
-
 ---@overload fun(copper: number, silver: number, gold: number, platinum: number): nil
+---@overload fun(copper: number, silver: number, gold: number, platinum: number, splitter: Client): nil
 ---@param copper number # TODO: definition of parameter
 ---@param silver number # TODO: definition of parameter
 ---@param gold number # TODO: definition of parameter

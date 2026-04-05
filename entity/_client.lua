@@ -934,36 +934,15 @@ function Client:MoveZoneInstance(instance_id, x, y, z, heading) end
 ---@param heading? number #
 function Client:MoveZoneInstanceGroup(instance_id, x, y, z, heading) end
 
----@param instance_id number #
----@param x number #
----@param y number #
----@param z number #
----@param heading number #
-function Client:MoveZoneInstanceRaid(instance_id, x, y, z, heading) end
-
----@param instance_id number #
----@param x number #
----@param y number #
----@param z number #
-function Client:MoveZoneInstanceRaid(instance_id, x, y, z) end
-
 ---@overload fun(instance_id: number): nil
 ---@overload fun(instance_id: number, x: number, y: number, z: number): nil
+---@overload fun(instance_id: number, x: number, y: number, z: number, heading: number): nil
 ---@param instance_id number #
 ---@param x? number
 ---@param y? number
 ---@param z? number
 ---@param heading? number
 function Client:MoveZoneInstanceRaid(instance_id, x, y, z, heading) end
-
----@param zone_short_name string #
-function Client:MoveZoneRaid(zone_short_name) end
-
----@param zone_short_name string #
----@param x number #
----@param y number #
----@param z number #
-function Client:MoveZoneRaid(zone_short_name, x, y, z) end
 
 ---@overload fun(zone_short_name: string): nil
 ---@overload fun(zone_short_name: string, x: number, y: number, z: number): nil
@@ -1111,14 +1090,12 @@ function Client:ScribeSpells(min_level, max_level) end
 function Client:SendColoredText(type, msg) end
 
 
----@param item_instance ItemInst #
-function Client:SendItemScale(item_instance) end
-
 ---@overload fun(message: string): boolean
 ---@param message string #
 ---@param ignore_status? number #
 function Client:SendGMCommand(message, ignore_status) end
 
+---@overload fun(item_instance: ItemInst): nil
 ---@param inst ItemInst #
 function Client:SendItemScale(inst) end
 

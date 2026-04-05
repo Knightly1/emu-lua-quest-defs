@@ -8,20 +8,14 @@ Door = {}
 
 function Door:CreateDatabaseEntry() end
 
----@param sender Mob # TODO: definition of parameter
----@param alt_mode boolean # TODO: definition of parameter
-function Door:ForceClose(sender, alt_mode) end
-
 ---@overload fun(sender: Mob): nil
+---@overload fun(sender: Mob, alt_mode: boolean): nil
 ---@param sender Mob # TODO: definition of parameter
 ---@param alt_mode? boolean
 function Door:ForceClose(sender, alt_mode) end
 
----@param sender Mob # TODO: definition of parameter
----@param alt_mode boolean # TODO: definition of parameter
-function Door:ForceOpen(sender, alt_mode) end
-
 ---@overload fun(sender: Mob): nil
+---@overload fun(sender: Mob, alt_mode: boolean): nil
 ---@param sender Mob # TODO: definition of parameter
 ---@param alt_mode? boolean
 function Door:ForceOpen(sender, alt_mode) end
