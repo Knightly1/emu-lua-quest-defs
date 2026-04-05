@@ -483,3 +483,422 @@
 ---@field yxtta number
 ---@field zhisza number
 Zone = {}
+
+---@return boolean
+function Zones:BuffTimersSuspended() end
+
+---@return boolean
+function Zones:BypassesExpansionCheck() end
+
+---@return boolean
+function Zones:CanBind() end
+
+---@return boolean
+function Zones:CanCastOutdoor() end
+
+---@return boolean
+function Zones:CanDoCombat() end
+
+---@return boolean
+function Zones:CanLevitate() end
+
+function Zones:ClearSpawnTimers() end
+
+---@return boolean
+function Zones:ClearVariables() end
+
+---@param bucket_name string # Data bucket name
+function Zones:DeleteBucket(bucket_name) end
+
+---@param variable_name string # Variable name
+---@return boolean
+function Zones:DeleteVariable(variable_name) end
+
+---@param start_spawn_timers? boolean # Start spawn timers
+function Zones:Depop(start_spawn_timers) end
+
+---@param spawngroup_id number # Spawngroup id
+function Zones:Despawn(spawngroup_id) end
+
+function Zones:DisableRespawnTimers() end
+
+---@param c Client # C
+---@return number
+function Zones:GetAAEXPModifier(c) end
+
+---@param character_id number # Character ID
+---@return number
+function Zones:GetAAEXPModifierByCharacterID(character_id) end
+
+---@param bucket_name string # Data bucket name
+---@return string
+function Zones:GetBucket(bucket_name) end
+
+---@param bucket_name string # Data bucket name
+---@return string
+function Zones:GetBucketExpires(bucket_name) end
+
+---@param bucket_name string # Data bucket name
+---@return string
+function Zones:GetBucketRemaining(bucket_name) end
+
+---@return string
+function Zones:GetContentFlags() end
+
+---@return string
+function Zones:GetContentFlagsDisabled() end
+
+---@param c Client # C
+---@return number
+function Zones:GetEXPModifier(c) end
+
+---@param character_id number # Character ID
+---@return number
+function Zones:GetEXPModifierByCharacterID(character_id) end
+
+---@return number
+function Zones:GetExpansion() end
+
+---@return number
+function Zones:GetExperienceMultiplier() end
+
+---@return number
+function Zones:GetFastRegenEndurance() end
+
+---@return number
+function Zones:GetFastRegenHP() end
+
+---@return number
+function Zones:GetFastRegenMana() end
+
+---@return string
+function Zones:GetFileName() end
+
+---@return string
+function Zones:GetFlagNeeded() end
+
+---@param slot? number # Slot number
+---@return number
+function Zones:GetFogBlue(slot) end
+
+---@return number
+function Zones:GetFogDensity() end
+
+---@param slot? number # Slot number
+---@return number
+function Zones:GetFogGreen(slot) end
+
+---@param slot? number # Slot number
+---@return number
+function Zones:GetFogMaximumClip(slot) end
+
+---@param slot? number # Slot number
+---@return number
+function Zones:GetFogMinimumClip(slot) end
+
+---@param slot? number # Slot number
+---@return number
+function Zones:GetFogRed(slot) end
+
+---@return number
+function Zones:GetGraveyardHeading() end
+
+---@return number
+function Zones:GetGraveyardID() end
+
+---@return number
+function Zones:GetGraveyardX() end
+
+---@return number
+function Zones:GetGraveyardY() end
+
+---@return number
+function Zones:GetGraveyardZ() end
+
+---@return number
+function Zones:GetGraveyardZoneID() end
+
+---@return number
+function Zones:GetGravity() end
+
+---@return number
+function Zones:GetInstanceID() end
+
+---@return number
+function Zones:GetInstanceTimeRemaining() end
+
+---@return number
+function Zones:GetInstanceType() end
+
+---@return number
+function Zones:GetInstanceVersion() end
+
+---@return number
+function Zones:GetLavaDamage() end
+
+---@return string
+function Zones:GetLongName() end
+
+---@return number
+function Zones:GetMaxClients() end
+
+---@return number
+function Zones:GetMaximumClip() end
+
+---@return number
+function Zones:GetMaximumExpansion() end
+
+---@return number
+function Zones:GetMaximumLevel() end
+
+---@return number
+function Zones:GetMinimumClip() end
+
+---@return number
+function Zones:GetMinimumExpansion() end
+
+---@return number
+function Zones:GetMinimumLavaDamage() end
+
+---@return number
+function Zones:GetMinimumLevel() end
+
+---@return number
+function Zones:GetMinimumStatus() end
+
+---@return number
+function Zones:GetNPCMaximumAggroDistance() end
+
+---@return string
+function Zones:GetNote() end
+
+---@return number
+function Zones:GetPEQZone() end
+
+---@return table
+function Zones:GetPausedTimers() end
+
+---@param slot? number # Slot number
+---@return number
+function Zones:GetRainChance(slot) end
+
+---@param slot? number # Slot number
+---@return number
+function Zones:GetRainDuration(slot) end
+
+---@return number
+function Zones:GetRuleSet() end
+
+---@return number
+function Zones:GetSafeHeading() end
+
+---@return number
+function Zones:GetSafeX() end
+
+---@return number
+function Zones:GetSafeY() end
+
+---@return number
+function Zones:GetSafeZ() end
+
+---@return number
+function Zones:GetSecondsBeforeIdle() end
+
+---@return string
+function Zones:GetShortName() end
+
+---@return number
+function Zones:GetShutdownDelay() end
+
+---@return number
+function Zones:GetSky() end
+
+---@return number
+function Zones:GetSkyLock() end
+
+---@param slot? number # Slot number
+---@return number
+function Zones:GetSnowChance(slot) end
+
+---@param slot? number # Slot number
+---@return number
+function Zones:GetSnowDuration(slot) end
+
+---@return number
+function Zones:GetTimeType() end
+
+---@return number
+function Zones:GetTimeZone() end
+
+---@param name string # Name
+---@return number
+function Zones:GetTimerDuration(name) end
+
+---@param name string # Name
+---@return number
+function Zones:GetTimerRemainingTime(name) end
+
+---@return table
+function Zones:GetTimers() end
+
+---@return number
+function Zones:GetUnderworld() end
+
+---@return number
+function Zones:GetUnderworldTeleportIndex() end
+
+---@param variable_name string # Variable name
+---@return string
+function Zones:GetVariable(variable_name) end
+
+---@return table
+function Zones:GetVariables() end
+
+---@return number
+function Zones:GetWalkSpeed() end
+
+---@return string
+function Zones:GetZoneDescription() end
+
+---@return number
+function Zones:GetZoneID() end
+
+---@return number
+function Zones:GetZoneTotalBlockedSpells() end
+
+---@return number
+function Zones:GetZoneType() end
+
+---@return number
+function Zones:GetZoneZType() end
+
+---@return boolean
+function Zones:HasGraveyard() end
+
+---@return boolean
+function Zones:HasMap() end
+
+---@param name string # Name
+---@return boolean
+function Zones:HasTimer(name) end
+
+---@return boolean
+function Zones:HasWaterMap() end
+
+---@return boolean
+function Zones:HasWeather() end
+
+---@return boolean
+function Zones:IsCity() end
+
+---@return boolean
+function Zones:IsHotzone() end
+
+---@return boolean
+function Zones:IsIdleWhenEmpty() end
+
+---@return boolean
+function Zones:IsInstancePersistent() end
+
+---@return boolean
+function Zones:IsPVPZone() end
+
+---@param name string # Name
+---@return boolean
+function Zones:IsPausedTimer(name) end
+
+---@return boolean
+function Zones:IsRaining() end
+
+---@return boolean
+function Zones:IsSnowing() end
+
+---@param x number # X coordinate
+---@param y number # Y coordinate
+---@param z number # Z coordinate
+---@param heading number # Heading direction
+---@return boolean
+function Zones:IsSpecialBindLocation(x, y, z, heading) end
+
+---@param spell_id number # Spell ID
+---@param x number # X coordinate
+---@param y number # Y coordinate
+---@param z number # Z coordinate
+---@return boolean
+function Zones:IsSpellBlocked(spell_id, x, y, z) end
+
+---@return boolean
+function Zones:IsStaticZone() end
+
+---@return boolean
+function Zones:IsUCSServerAvailable() end
+
+---@param z number # Z coordinate
+---@return boolean
+function Zones:IsWaterZone(z) end
+
+---@param name string # Name
+function Zones:PauseTimer(name) end
+
+---@param is_forced? boolean # Is forced
+function Zones:Repop(is_forced) end
+
+---@param name string # Name
+function Zones:ResumeTimer(name) end
+
+---@param payload_id number # Payload id
+---@param payload_value string # Payload value
+function Zones:SendPayload(payload_id, payload_value) end
+
+---@param c Client # C
+---@param aa_modifier number # Aa modifier
+function Zones:SetAAEXPModifier(c, aa_modifier) end
+
+---@param character_id number # Character ID
+---@param aa_modifier number # Aa modifier
+function Zones:SetAAEXPModifierByCharacterID(character_id, aa_modifier) end
+
+---@param bucket_name string # Data bucket name
+---@param bucket_value string # Data bucket value
+---@param expiration? string # Expiration
+function Zones:SetBucket(bucket_name, bucket_value, expiration) end
+
+---@param c Client # C
+---@param exp_modifier number # Exp modifier
+function Zones:SetEXPModifier(c, exp_modifier) end
+
+---@param character_id number # Character ID
+---@param exp_modifier number # Exp modifier
+function Zones:SetEXPModifierByCharacterID(character_id, exp_modifier) end
+
+---@param time_remaining number # Time remaining
+function Zones:SetInstanceTimeRemaining(time_remaining) end
+
+---@param new_duration number # New duration
+function Zones:SetInstanceTimer(new_duration) end
+
+---@param is_hotzone boolean # Is hotzone
+function Zones:SetIsHotzone(is_hotzone) end
+
+---@param name string # Name
+---@param duration number # Duration in milliseconds
+function Zones:SetTimer(name, duration) end
+
+---@param variable_name string # Variable name
+---@param variable_value string # Variable value
+function Zones:SetVariable(variable_name, variable_value) end
+
+---@param c Client # C
+function Zones:ShowZoneGlobalLoot(c) end
+
+---@param signal_id number # Signal id
+function Zones:Signal(signal_id) end
+
+function Zones:StopAllTimers() end
+
+---@param name string # Name
+function Zones:StopTimer(name) end
+
+---@param variable_name string # Variable name
+---@return boolean
+function Zones:VariableExists(variable_name) end

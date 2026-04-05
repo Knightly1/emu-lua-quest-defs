@@ -360,3 +360,5 @@ function Item:Worn_Effect() end
 function Item:Worn_Level() end
 
 function Item:Worn_Level2() end
+
+function Item:Comment() end

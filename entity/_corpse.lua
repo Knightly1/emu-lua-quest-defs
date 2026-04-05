@@ -2,6 +2,8 @@
 
 ---TODO: definition for Corpse
 ---@class Corpse : Mob
+---@field null boolean
+---@field valid boolean
 Corpse = {}
 
 ---@param itemnum number # TODO: definition of parameter

@@ -1397,3 +1397,293 @@ function Mob:WalkTo(x, y, z) end
 function Mob:WearChange(material_slot, texture, color) end
 
 function Mob:WipeHateList() end
+
+---@param distance number # Distance
+---@param slot_id? number # Slot ID
+---@param count? number # Count
+---@param is_from_spell? boolean # Is from spell
+---@param attack_rounds? number # Attack rounds
+function Mob:AreaAttack(distance, slot_id, count, is_from_spell, attack_rounds) end
+
+---@param center Mob # Center
+---@param spell_id number # Spell ID
+---@param affect_caster? boolean # Affect caster
+---@param resist_adjust? number # Resist adjust
+---@param max_targets? number # Max targets
+function Mob:AreaSpell(center, spell_id, affect_caster, resist_adjust, max_targets) end
+
+function Mob:BuffFadeBeneficial() end
+
+function Mob:BuffFadeDetrimental() end
+
+---@param caster Mob # Caster
+function Mob:BuffFadeDetrimentalByCaster(caster) end
+
+function Mob:BuffFadeNonPersistDeath() end
+
+function Mob:BuffFadeSongs() end
+
+---@return boolean
+function Mob:ClearEntityVariables() end
+
+---@param to Mob # To
+function Mob:CopyHateList(to) end
+
+---@param damage number # Damage amount
+---@param distance? number # Distance
+function Mob:DamageHateListBots(damage, distance) end
+
+---@param damage number # Damage amount
+---@param distance? number # Distance
+function Mob:DamageHateListPercentage(damage, distance) end
+
+---@param spell_id number # Spell ID
+---@param value number # Value
+---@param target Mob # Target entity
+---@param from_buff_tic? boolean # From buff tic
+---@return number
+function Mob:GetActDoTDamage(spell_id, value, target, from_buff_tic) end
+
+---@param spell_id number # Spell ID
+---@param value number # Value
+---@param effectiveness number # Effectiveness
+---@return number
+function Mob:GetActReflectedSpellDamage(spell_id, value, effectiveness) end
+
+---@param spell_id number # Spell ID
+---@param cast_time number # Cast time
+---@return number
+function Mob:GetActSpellCasttime(spell_id, cast_time) end
+
+---@param spell_id number # Spell ID
+---@param cost number # Cost
+---@return number
+function Mob:GetActSpellCost(spell_id, cost) end
+
+---@param spell_id number # Spell ID
+---@param value number # Value
+---@param target? Mob # Target entity
+---@return number
+function Mob:GetActSpellDamage(spell_id, value, target) end
+
+---@param spell_id number # Spell ID
+---@param duration number # Duration in milliseconds
+---@return number
+function Mob:GetActSpellDuration(spell_id, duration) end
+
+---@param spell_id number # Spell ID
+---@param value number # Value
+---@param target? Mob # Target entity
+---@param from_buff_tic? boolean # From buff tic
+---@return number
+function Mob:GetActSpellHealing(spell_id, value, target, from_buff_tic) end
+
+---@param spell_id number # Spell ID
+---@param range number # Range
+---@return number
+function Mob:GetActSpellRange(spell_id, range) end
+
+---@return string
+function Mob:GetArchetypeName() end
+
+---@return string
+function Mob:GetBaseRaceName() end
+
+---@return table
+function Mob:GetBuffSpellIDs() end
+
+---@return table
+function Mob:GetBuffs() end
+
+---@return string
+function Mob:GetClassPlural() end
+
+---@param distance? number # Distance
+---@param ignore_self? boolean # Ignore self
+---@return MobList
+function Mob:GetCloseMobList(distance, ignore_self) end
+
+---@param other Mob # Other entity
+---@return string
+function Mob:GetConsiderColor(other) end
+
+---@param race_id? number # Race ID
+---@param gender_id? number # Gender id
+---@return number
+function Mob:GetDefaultRaceSize(race_id, gender_id) end
+
+---@return string
+function Mob:GetDeityName() end
+
+---@return number
+function Mob:GetExtraHaste() end
+
+---@param skip_mezzed? boolean # Skip mezzed
+---@return Bot
+function Mob:GetHateClosestBot(skip_mezzed) end
+
+---@param skip_mezzed? boolean # Skip mezzed
+---@return Client
+function Mob:GetHateClosestClient(skip_mezzed) end
+
+---@param skip_mezzed? boolean # Skip mezzed
+---@return NPC
+function Mob:GetHateClosestNPC(skip_mezzed) end
+
+---@return number
+function Mob:GetHateListBotCount() end
+
+---@return number
+function Mob:GetHateListClientCount() end
+
+---@return number
+function Mob:GetHateListCount() end
+
+---@return number
+function Mob:GetHateListNPCCount() end
+
+---@return Bot
+function Mob:GetHateTopBot() end
+
+---@return Client
+function Mob:GetHateTopClient() end
+
+---@return NPC
+function Mob:GetHateTopNPC() end
+
+---@return number
+function Mob:GetHeroicStrikethrough() end
+
+---@return number
+function Mob:GetMobTypeIdentifier() end
+
+---@return table
+function Mob:GetPausedTimers() end
+
+---@return number
+function Mob:GetPetType() end
+
+---@return string
+function Mob:GetPetTypeName() end
+
+---@return string
+function Mob:GetRacePlural() end
+
+---@param timer_name string # Timer name
+---@return number
+function Mob:GetRemainingTimeMS(timer_name) end
+
+---@param timer_name string # Timer name
+---@return number
+function Mob:GetTimerDurationMS(timer_name) end
+
+---@return table
+function Mob:GetTimers() end
+
+---@param effect_id number # Effect ID
+---@return boolean
+function Mob:HasSpellEffect(effect_id) end
+
+---@param timer_name string # Timer name
+---@return boolean
+function Mob:HasTimer(timer_name) end
+
+---@return boolean
+function Mob:IsAlwaysAggro() end
+
+---@return boolean
+function Mob:IsAnimation() end
+
+---@return boolean
+function Mob:IsBoat() end
+
+---@return boolean
+function Mob:IsCharmed() end
+
+---@return boolean
+function Mob:IsControllableBoat() end
+
+---@return boolean
+function Mob:IsDestructibleObject() end
+
+---@return boolean
+function Mob:IsFamiliar() end
+
+---@return boolean
+function Mob:IsFindable() end
+
+---@return boolean
+function Mob:IsIntelligenceCasterClass() end
+
+---@param timer_name string # Timer name
+---@return boolean
+function Mob:IsPausedTimer(timer_name) end
+
+---@return boolean
+function Mob:IsPetOwnerBot() end
+
+---@return boolean
+function Mob:IsPetOwnerClient() end
+
+---@return boolean
+function Mob:IsPetOwnerNPC() end
+
+---@return boolean
+function Mob:IsPetOwnerOfClientBot() end
+
+---@return boolean
+function Mob:IsPureMeleeClass() end
+
+---@return boolean
+function Mob:IsTargetLockPet() end
+
+---@return boolean
+function Mob:IsTemporaryPet() end
+
+---@return boolean
+function Mob:IsTrackable() end
+
+---@return boolean
+function Mob:IsWisdomCasterClass() end
+
+---@param center Mob # Center
+---@param spell_id number # Spell ID
+---@param affect_caster? boolean # Affect caster
+function Mob:MassGroupBuff(center, spell_id, affect_caster) end
+
+---@param type number # Type identifier
+---@param string_id number # String id
+---@param distance number # Distance
+function Mob:MessageString(type, string_id, distance) end
+
+---@param timer_name string # Timer name
+function Mob:PauseTimer(timer_name) end
+
+function Mob:RestoreEndurance() end
+
+function Mob:RestoreHealth() end
+
+function Mob:RestoreMana() end
+
+---@param timer_name string # Timer name
+function Mob:ResumeTimer(timer_name) end
+
+---@param payload_id number # Payload id
+---@param payload_value? string # Payload value
+function Mob:SendPayload(payload_id, payload_value) end
+
+---@param pet_type number # Pet type
+function Mob:SetPetType(pet_type) end
+
+---@param timer_name string # Timer name
+---@param seconds number # Seconds
+function Mob:SetTimer(timer_name, seconds) end
+
+---@param timer_name string # Timer name
+---@param milliseconds number # Milliseconds
+function Mob:SetTimerMS(timer_name, milliseconds) end
+
+function Mob:StopAllTimers() end
+
+---@param timer_name string # Timer name
+function Mob:StopTimer(timer_name) end

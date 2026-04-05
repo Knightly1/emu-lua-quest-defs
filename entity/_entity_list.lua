@@ -340,3 +340,56 @@ function EntityList:SignalBotByBotName(bot_name, signal_id) end
 ---@param npc_id number # TODO: definition of parameter
 ---@param signal number # TODO: definition of parameter
 function EntityList:SignalMobsByNPCID(npc_id, signal) end
+
+---@param attacker Mob # Attacker
+---@param distance number # Distance
+---@param slot_id? number # Slot ID
+---@param count? number # Count
+---@param is_from_spell? boolean # Is from spell
+---@param attack_rounds? number # Attack rounds
+function EntityList:AreaAttack(attacker, distance, slot_id, count, is_from_spell, attack_rounds) end
+
+---@param caster Mob # Caster
+---@param center Mob # Center
+---@param spell_id number # Spell ID
+---@param affect_caster? boolean # Affect caster
+---@param resist_adjust? number # Resist adjust
+---@param max_targets? number # Max targets
+function EntityList:AreaSpell(caster, center, spell_id, affect_caster, resist_adjust, max_targets) end
+
+---@param caster Client # Caster
+---@param range? number # Range
+---@param bonus_hate? number # Bonus hate
+function EntityList:AreaTaunt(caster, range, bonus_hate) end
+
+---@param entity_id number # Entity id
+---@return Client
+function EntityList:GetBotOwnerByBotEntityID(entity_id) end
+
+---@param bot_id number # Bot id
+---@return Client
+function EntityList:GetBotOwnerByBotID(bot_id) end
+
+---@param mob Mob # Target mob
+---@param distance? number # Distance
+---@param ignore_self? boolean # Ignore self
+---@return MobList
+function EntityList:GetCloseMobList(mob, distance, ignore_self) end
+
+---@param npc_ids table # Npc ids
+---@return NPCList
+function EntityList:GetNPCsByExcludedIDs(npc_ids) end
+
+---@param npc_ids table # Npc ids
+---@return NPCList
+function EntityList:GetNPCsByIDs(npc_ids) end
+
+---@param caster Mob # Caster
+---@param center Mob # Center
+---@param spell_id number # Spell ID
+---@param affect_caster? boolean # Affect caster
+function EntityList:MassGroupBuff(caster, center, spell_id, affect_caster) end
+
+---@param owner_name string # Owner name
+---@param signal_id number # Signal id
+function EntityList:SignalAllBotsByOwnerName(owner_name, signal_id) end

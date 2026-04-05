@@ -169,3 +169,110 @@ function Bot:Signal(signal_id) end
 function Bot:Sit() end
 
 function Bot:Stand() end
+
+---@param item_table table # Item table
+function Bot:AddItem(item_table) end
+
+---@param spell_id number # Spell ID
+---@param duration? number # Duration in milliseconds
+---@param level? number # Level
+---@param allow_pets? boolean # Allow pets
+---@param is_raid_group_only? boolean # Is raid group only
+function Bot:ApplySpellRaid(spell_id, duration, level, allow_pets, is_raid_group_only) end
+
+---@param spell_id? number # Spell ID
+function Bot:ClearDisciplineReuseTimer(spell_id) end
+
+---@param item_id? number # Item ID
+function Bot:ClearItemReuseTimer(item_id) end
+
+---@param spell_id? number # Spell ID
+function Bot:ClearSpellRecastTimer(spell_id) end
+
+---@param item_id number # Item ID
+---@return number
+function Bot:CountAugmentEquippedByID(item_id) end
+
+function Bot:DeleteBot() end
+
+---@param bucket_name string # Data bucket name
+function Bot:DeleteBucket(bucket_name) end
+
+---@param slot_id number # Slot ID
+---@return table
+function Bot:GetAugmentIDsBySlotID(slot_id) end
+
+---@param bucket_name string # Data bucket name
+---@return string
+function Bot:GetBucket(bucket_name) end
+
+---@param bucket_name string # Data bucket name
+---@return string
+function Bot:GetBucketExpires(bucket_name) end
+
+---@param bucket_name string # Data bucket name
+---@return string
+function Bot:GetBucketRemaining(bucket_name) end
+
+---@return string
+function Bot:GetClassAbbreviation() end
+
+---@param spell_id? number # Spell ID
+---@return number
+function Bot:GetDisciplineReuseTimer(spell_id) end
+
+---@return number
+function Bot:GetHealAmount() end
+
+---@param spell_id number # Spell ID
+---@return number
+function Bot:GetInstrumentMod(spell_id) end
+
+---@param slot_id number # Slot ID
+---@return ItemInst
+function Bot:GetItemAt(slot_id) end
+
+---@param slot_id number # Slot ID
+---@return number
+function Bot:GetItemIDAt(slot_id) end
+
+---@param item_id? number # Item ID
+---@return number
+function Bot:GetItemReuseTimer(item_id) end
+
+---@return string
+function Bot:GetRaceAbbreviation() end
+
+---@param spell_id? number # Spell ID
+---@return number
+function Bot:GetSpellRecastTimer(spell_id) end
+
+---@return boolean
+function Bot:IsStanding() end
+
+---@param message string # Message text
+function Bot:RaidGroupSay(message) end
+
+---@param bucket_name string # Data bucket name
+---@param bucket_value string # Data bucket value
+---@param expiration? string # Expiration
+function Bot:SetBucket(bucket_name, bucket_value, expiration) end
+
+---@param spell_id number # Spell ID
+---@param reuse_timer? number # Reuse timer
+function Bot:SetDisciplineReuseTimer(spell_id, reuse_timer) end
+
+---@param item_id number # Item ID
+---@param reuse_timer? number # Reuse timer
+function Bot:SetItemReuseTimer(item_id, reuse_timer) end
+
+---@param spell_id number # Spell ID
+---@param duration? number # Duration in milliseconds
+---@param level? number # Level
+---@param allow_pets? boolean # Allow pets
+---@param is_raid_group_only? boolean # Is raid group only
+function Bot:SetSpellDurationRaid(spell_id, duration, level, allow_pets, is_raid_group_only) end
+
+---@param spell_id number # Spell ID
+---@param reuse_timer? number # Reuse timer
+function Bot:SetSpellRecastTimer(spell_id, reuse_timer) end

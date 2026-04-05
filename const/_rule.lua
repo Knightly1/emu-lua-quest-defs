@@ -825,3 +825,5 @@ RuleB = {}
 ---@param name number # index of rule
 ---@return number # value of returned rule converted to boolean
 function RuleB.Get(name) end
+
+function RuleS:Get() end

@@ -85,3 +85,9 @@ function Raid:TeleportGroup(sender, zone_id, instance_id, x, y, z, h, group_id) 
 ---@param z number # TODO: definition of parameter
 ---@param h number # TODO: definition of parameter
 function Raid:TeleportRaid(sender, zone_id, instance_id, x, y, z, h) end
+
+---@return Client
+function Raid:GetLeader() end
+
+---@return string
+function Raid:GetLeaderName() end

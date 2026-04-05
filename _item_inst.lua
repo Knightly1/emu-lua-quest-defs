@@ -138,3 +138,70 @@ function ItemInst:SetTimer(name, time) end
 ---@param name string # TODO: definition of parameter
 function ItemInst:StopTimer(name) end
 
+---@param amount number # Amount
+function ItemInst:AddEvolveAmount(amount) end
+
+---@param slot_id number # Slot ID
+---@return number
+function ItemInst:GetAugmentEvolveUniqueID(slot_id) end
+
+---@return table
+function ItemInst:GetAugmentIDs() end
+
+---@return boolean
+function ItemInst:GetEvolveActivated() end
+
+---@return number
+function ItemInst:GetEvolveAmount() end
+
+---@return number
+function ItemInst:GetEvolveCharacterID() end
+
+---@return boolean
+function ItemInst:GetEvolveEquipped() end
+
+---@return number
+function ItemInst:GetEvolveFinalItemID() end
+
+---@return number
+function ItemInst:GetEvolveItemID() end
+
+---@return number
+function ItemInst:GetEvolveLevel() end
+
+---@return number
+function ItemInst:GetEvolveLoreID() end
+
+---@return number
+function ItemInst:GetEvolveProgression() end
+
+---@return number
+function ItemInst:GetEvolveUniqueID() end
+
+---@return string
+function ItemInst:GetItemLink() end
+
+---@return string
+function ItemInst:GetName() end
+
+---@return number
+function ItemInst:GetSerialNumber() end
+
+---@return boolean
+function ItemInst:IsAttuned() end
+
+---@return boolean
+function ItemInst:IsEvolving() end
+
+---@param text string # Text
+---@param language_id? number # Language id
+function ItemInst:ItemSay(text, language_id) end
+
+---@param flag boolean # Flag value
+function ItemInst:SetAttuned(flag) end
+
+---@param amount number # Amount
+function ItemInst:SetEvolveAmount(amount) end
+
+---@param amount number # Amount
+function ItemInst:SetEvolveProgression(amount) end

@@ -89,3 +89,7 @@ function Inventory:SupportsContainers(slot_id) end
 ---@param source_slot number # TODO: definition of parameter
 ---@param destination_slot number # TODO: definition of parameter
 function Inventory:SwapItem(source_slot, destination_slot) end
+
+---@param slot_id number # Slot ID
+---@return table
+function Inventory:GetAugmentIDsBySlotID(slot_id) end

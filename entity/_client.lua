@@ -1412,3 +1412,256 @@ function Client:UpdateTaskActivity(task, activity, count) end
 function Client:UseDiscipline(spell_id, target_id) end
 
 function Client:WorldKick() end
+
+---@param amount number # Amount
+function Client:AddEbonCrystals(amount) end
+
+---@param amount number # Amount
+function Client:AddRadiantCrystals(amount) end
+
+---@param task_ids table # Task ids
+---@return boolean
+function Client:AreTasksCompleted(task_ids) end
+
+---@param range? number # Range
+---@param bonus_hate? number # Bonus hate
+function Client:AreaTaunt(range, bonus_hate) end
+
+---@param flag string # Flag value
+function Client:ClearAccountFlag(flag) end
+
+---@return boolean
+function Client:ClearNameChange() end
+
+function Client:ClearXTargets() end
+
+---@param task_id number # Task ID
+---@return boolean
+function Client:CompleteTask(task_id) end
+
+---@param bucket_name string # Data bucket name
+function Client:DeleteAccountBucket(bucket_name) end
+
+---@param bucket_name string # Data bucket name
+function Client:DeleteBucket(bucket_name) end
+
+---@param n NPC # N
+function Client:DescribeSpecialAbilities(n) end
+
+---@param param1 string
+function Client:DiaWind(param1) end
+
+---@param title_set number # Title set
+function Client:EnableTitleSet(title_set) end
+
+---@return number
+function Client:GetAAEXPPercentage() end
+
+---@param bucket_name string # Data bucket name
+---@return string
+function Client:GetAccountBucket(bucket_name) end
+
+---@param bucket_name string # Data bucket name
+---@return string
+function Client:GetAccountBucketExpires(bucket_name) end
+
+---@param bucket_name string # Data bucket name
+---@return string
+function Client:GetAccountBucketRemaining(bucket_name) end
+
+---@return table
+function Client:GetAccountFlags() end
+
+---@return string
+function Client:GetAutoLoginCharacterName() end
+
+---@param bandolier_slot number # Bandolier slot
+---@param slot_id number # Slot ID
+---@return number
+function Client:GetBandolierItemID(bandolier_slot, slot_id) end
+
+---@param bandolier_slot number # Bandolier slot
+---@param slot_id number # Slot ID
+---@return number
+function Client:GetBandolierItemIcon(bandolier_slot, slot_id) end
+
+---@param bandolier_slot number # Bandolier slot
+---@param slot_id number # Slot ID
+---@return string
+function Client:GetBandolierItemName(bandolier_slot, slot_id) end
+
+---@param bandolier_slot number # Bandolier slot
+---@return string
+function Client:GetBandolierName(bandolier_slot) end
+
+---@param bucket_name string # Data bucket name
+---@return string
+function Client:GetBucket(bucket_name) end
+
+---@param bucket_name string # Data bucket name
+---@return string
+function Client:GetBucketExpires(bucket_name) end
+
+---@param bucket_name string # Data bucket name
+---@return string
+function Client:GetBucketRemaining(bucket_name) end
+
+---@return string
+function Client:GetClassAbbreviation() end
+
+---@return number
+function Client:GetDeityBitmask() end
+
+---@param check_level number # Check level
+---@return number
+function Client:GetEXPForLevel(check_level) end
+
+---@return number
+function Client:GetEXPPercentage() end
+
+---@return number
+function Client:GetIntoxication() end
+
+---@return table
+function Client:GetInventorySlots() end
+
+---@param item_id number # Item ID
+---@return number
+function Client:GetItemCooldown(item_id) end
+
+---@return table
+function Client:GetKeyRing() end
+
+---@return table
+function Client:GetLearnedDisciplines() end
+
+---@return table
+function Client:GetPEQZoneFlags() end
+
+---@param slot_id number # Slot ID
+---@return number
+function Client:GetPotionBeltItemID(slot_id) end
+
+---@param slot_id number # Slot ID
+---@return number
+function Client:GetPotionBeltItemIcon(slot_id) end
+
+---@param slot_id number # Slot ID
+---@return string
+function Client:GetPotionBeltItemName(slot_id) end
+
+---@return string
+function Client:GetRaceAbbreviation() end
+
+---@param clients_only? boolean # Clients only
+---@return table
+function Client:GetRaidOrGroupOrSelf(clients_only) end
+
+---@return table
+function Client:GetScribedSpells() end
+
+---@param skill_id number # Skill ID
+---@return number
+function Client:GetSkillTrainLevel(skill_id) end
+
+---@return table
+function Client:GetZoneFlags() end
+
+---@param unlock_level? number # Unlock level
+---@param skip_grant_only? boolean # Skip grant only
+function Client:GrantAllAAPoints(unlock_level, skip_grant_only) end
+
+function Client:GrantNameChange() end
+
+function Client:GrantPetNameChange() end
+
+---@param item_id number # Item ID
+---@return boolean
+function Client:HasItemOnCorpse(item_id) end
+
+---@return boolean
+function Client:IsAutoAttackEnabled() end
+
+---@return boolean
+function Client:IsAutoFireEnabled() end
+
+---@return boolean
+function Client:IsEXPEnabled() end
+
+---@return boolean
+function Client:IsInAGuild() end
+
+---@return boolean
+function Client:IsNameChangeAllowed() end
+
+---@return boolean
+function Client:KeyRingClear() end
+
+---@param c? Client # C
+function Client:KeyRingList(c) end
+
+---@param item_id number # Item ID
+---@return boolean
+function Client:KeyRingRemove(item_id) end
+
+function Client:MaxSkills() end
+
+---@return boolean
+function Client:ReloadDataBuckets() end
+
+---@param points number # Points
+---@return boolean
+function Client:RemoveAAPoints(points) end
+
+---@param currency_id number # Currency id
+---@param amount number # Amount
+---@return boolean
+function Client:RemoveAlternateCurrencyValue(currency_id, amount) end
+
+---@param amount number # Amount
+function Client:RemoveEbonCrystals(amount) end
+
+---@param amount number # Amount
+function Client:RemoveRadiantCrystals(amount) end
+
+---@param item_id number # Item ID
+function Client:ResetItemCooldown(item_id) end
+
+function Client:ResetLeadershipAA() end
+
+---@param percentage number # Percentage
+function Client:SetAAEXPPercentage(percentage) end
+
+---@param bucket_name string # Data bucket name
+---@param bucket_value string # Data bucket value
+---@param expiration? string # Expiration
+function Client:SetAccountBucket(bucket_name, bucket_value, expiration) end
+
+---@param character_name? string # Character name
+---@return boolean
+function Client:SetAutoLoginCharacterName(character_name) end
+
+---@param bucket_name string # Data bucket name
+---@param bucket_value string # Data bucket value
+---@param expiration? string # Expiration
+function Client:SetBucket(bucket_name, bucket_value, expiration) end
+
+---@param item_id number # Item ID
+---@param in_time number # In time
+function Client:SetItemCooldown(item_id, in_time) end
+
+---@param theme_id number # LDoN Theme ID
+---@param points number # Points
+function Client:SetLDoNPoints(theme_id, points) end
+
+function Client:ShowZoneShardMenu() end
+
+---@param item_table table # Item table
+function Client:SummonItemIntoInventory(item_table) end
+
+---@param task_id number # Task ID
+---@return boolean
+function Client:UncompleteTask(task_id) end
+
+---@param container_slot number # Container slot
+function Client:UseAugmentContainer(container_slot) end

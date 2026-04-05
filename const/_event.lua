@@ -118,5 +118,26 @@
 ---@field unmemorize_spell number
 ---@field scribe_spell number
 ---@field unscribe_spell number # client event
+---@field aa_exp_gained number
+---@field aa_loss number
+---@field alt_currency_gain number
+---@field alt_currency_loss number
+---@field charm_end number
+---@field charm_start number
+---@field crystal_gain number
+---@field crystal_loss number
+---@field entity_variable_delete number
+---@field entity_variable_set number
+---@field entity_variable_update number
+---@field exp_gain number
+---@field ldon_points_gain number
+---@field ldon_points_loss number
+---@field loot_added number
+---@field pet_command number
+---@field read number
+---@field timer_pause number
+---@field timer_resume number
+---@field timer_start number
+---@field timer_stop number
 Event = {}
 

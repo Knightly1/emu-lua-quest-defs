@@ -68,3 +68,15 @@ function Entity:IsPlayerCorpse() end
 
 ---@return boolean
 function Entity:IsTrap() end
+
+---@return Merc
+function Entity:CastToMerc() end
+
+---@return boolean
+function Entity:IsAura() end
+
+---@return boolean
+function Entity:IsOfClientBot() end
+
+---@return boolean
+function Entity:IsOfClientBotMerc() end

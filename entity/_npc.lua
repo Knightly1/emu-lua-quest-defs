@@ -323,3 +323,110 @@ function NPC:StopWandering() end
 
 ---@param wp number # TODO: definition of parameter
 function NPC:UpdateWaypoint(wp) end
+
+---@param param1 Client
+---@param param2 table
+---@param param3 table
+---@param param4 table
+function NPC:CheckHandin(param1, param2, param3, param4) end
+
+---@param bucket_name string # Data bucket name
+function NPC:DeleteBucket(bucket_name) end
+
+---@param c Client # C
+function NPC:DescribeSpecialAbilities(c) end
+
+---@param bucket_name string # Data bucket name
+---@return string
+function NPC:GetBucket(bucket_name) end
+
+---@param bucket_name string # Data bucket name
+---@return string
+function NPC:GetBucketExpires(bucket_name) end
+
+---@param bucket_name string # Data bucket name
+---@return string
+function NPC:GetBucketRemaining(bucket_name) end
+
+---@return boolean
+function NPC:GetKeepsSoldItems() end
+
+---@return number
+function NPC:GetLDoNLockedSkill() end
+
+---@return number
+function NPC:GetLDoNTrapSpellID() end
+
+---@return number
+function NPC:GetLDoNTrapType() end
+
+---@return boolean
+function NPC:GetNPCAggro() end
+
+---@return number
+function NPC:GetNPCSpellsEffectsID() end
+
+---@return number
+function NPC:GetNPCTintIndex() end
+
+---@return Spawn
+function NPC:GetSpawn() end
+
+---@return boolean
+function NPC:IsLDoNLocked() end
+
+---@return boolean
+function NPC:IsLDoNTrapDetected() end
+
+---@return boolean
+function NPC:IsLDoNTrapped() end
+
+---@return boolean
+function NPC:IsMultiQuestEnabled() end
+
+---@return boolean
+function NPC:IsResumedFromZoneSuspend() end
+
+---@return boolean
+function NPC:IsUnderwaterOnly() end
+
+function NPC:MultiQuestEnable() end
+
+---@param c Client # C
+function NPC:ReturnHandinItems(c) end
+
+---@param payload_id number # Payload id
+---@param payload_value? string # Payload value
+function NPC:SendPayload(payload_id, payload_value) end
+
+---@param bucket_name string # Data bucket name
+---@param bucket_value string # Data bucket value
+---@param expiration? string # Expiration
+function NPC:SetBucket(bucket_name, bucket_value, expiration) end
+
+---@param keeps_sold_items boolean # Keeps sold items
+function NPC:SetKeepsSoldItems(keeps_sold_items) end
+
+---@param is_locked boolean # Is locked
+function NPC:SetLDoNLocked(is_locked) end
+
+---@param skill_value number # Skill value
+function NPC:SetLDoNLockedSkill(skill_value) end
+
+---@param is_detected boolean # Is detected
+function NPC:SetLDoNTrapDetected(is_detected) end
+
+---@param spell_id number # Spell ID
+function NPC:SetLDoNTrapSpellID(spell_id) end
+
+---@param trap_type number # Trap type
+function NPC:SetLDoNTrapType(trap_type) end
+
+---@param is_trapped boolean # Is trapped
+function NPC:SetLDoNTrapped(is_trapped) end
+
+---@param in_npc_aggro boolean # In npc aggro
+function NPC:SetNPCAggro(in_npc_aggro) end
+
+---@param id number # Id
+function NPC:SetNPCTintIndex(id) end

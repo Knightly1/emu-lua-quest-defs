@@ -594,3 +594,5 @@ function StatBonuses:songModCap() end
 function StatBonuses:stringedMod() end
 
 function StatBonuses:windMod() end
+
+function StatBonuses:FlatMaxHPChange() end

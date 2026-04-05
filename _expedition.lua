@@ -134,3 +134,6 @@ function Expedition:UpdateLockoutDuration(event_name, duration) end
 ---@param duration number # TODO: definition of parameter
 ---@param members_only boolean # TODO: definition of parameter
 function Expedition:UpdateLockoutDuration(event_name, duration, members_only) end
+
+---@return table
+function Expedition:GetMembers() end

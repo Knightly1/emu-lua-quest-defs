@@ -85,3 +85,7 @@ function Group:SplitMoney(copper, silver, gold, platinum) end
 ---@param z number # TODO: definition of parameter
 ---@param h number # TODO: definition of parameter
 function Group:TeleportGroup(sender, zone_id, instance_id, x, y, z, h) end
+
+---@param member Mob # Member
+---@return number
+function Group:GetMemberRole(member) end

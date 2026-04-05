@@ -2088,3 +2088,649 @@ function eq.zone_marquee(type, message, duration) end
 
 ---@param zone_name string #
 function eq.zone_raid(zone_name) end
+
+function eq.are_tasks_completed() end
+
+function eq.calculate_corruption_counters() end
+
+function eq.calculate_counters() end
+
+function eq.calculate_curse_counters() end
+
+function eq.calculate_disease_counters() end
+
+function eq.calculate_poison_counters() end
+
+function eq.cast_spell() end
+
+function eq.complete_task() end
+
+function eq.convert_money_to_string() end
+
+---@param param1 number
+---@param param2? number
+---@param param3? boolean
+---@param param4? number
+function eq.do_anim(param1, param2, param3, param4) end
+
+function eq.do_augment_slots_match() end
+
+---@param param1 ItemInst
+---@param param2 number
+function eq.does_augment_fit(param1, param2) end
+
+---@param param1 ItemInst
+---@param param2 number
+---@param param3 number
+function eq.does_augment_fit_slot(param1, param2, param3) end
+
+function eq.get_auto_login_character_name_by_account_id() end
+
+function eq.get_bot_class_by_id() end
+
+function eq.get_bot_gender_by_id() end
+
+---@param param1 lua_State*
+---@param param2 number
+---@param param3? number
+function eq.get_bot_ids_by_character_id(param1, param2, param3) end
+
+function eq.get_bot_level_by_id() end
+
+function eq.get_bot_name_by_id() end
+
+function eq.get_bot_race_by_id() end
+
+function eq.get_class_bitmask() end
+
+function eq.get_deity_bitmask() end
+
+function eq.get_expedition_lockout_by_char_id() end
+
+---@param param1 lua_State*
+---@param param2 number
+---@param param3? string
+function eq.get_expedition_lockouts_by_char_id(param1, param2, param3) end
+
+function eq.get_instance_ids() end
+
+function eq.get_instance_ids_by_char_id() end
+
+function eq.get_instance_version_by_id() end
+
+function eq.get_instance_zone_id_by_id() end
+
+---@param param1 number
+function eq.get_item_comment(param1) end
+
+---@param param1 number
+function eq.get_item_lore(param1) end
+
+function eq.get_paused_timers() end
+
+function eq.get_pet_command_name() end
+
+function eq.get_pet_type_name() end
+
+function eq.get_race_bitmask() end
+
+---@param param1 number
+---@param param2 number
+function eq.get_recipe_component_count(param1, param2) end
+
+---@param param1 lua_State*
+---@param param2 number
+function eq.get_recipe_component_item_ids(param1, param2) end
+
+---@param param1 lua_State*
+---@param param2 number
+function eq.get_recipe_container_item_ids(param1, param2) end
+
+---@param param1 number
+---@param param2 number
+function eq.get_recipe_fail_count(param1, param2) end
+
+---@param param1 lua_State*
+---@param param2 number
+function eq.get_recipe_fail_item_ids(param1, param2) end
+
+---@param param1 number
+---@param param2 number
+function eq.get_recipe_salvage_count(param1, param2) end
+
+---@param param1 lua_State*
+---@param param2 number
+function eq.get_recipe_salvage_item_ids(param1, param2) end
+
+---@param param1 number
+---@param param2 number
+function eq.get_recipe_success_count(param1, param2) end
+
+---@param param1 lua_State*
+---@param param2 number
+function eq.get_recipe_success_item_ids(param1, param2) end
+
+function eq.get_spell_effect_description_number() end
+
+function eq.get_spell_effect_index() end
+
+function eq.get_spell_furious_bash() end
+
+function eq.get_spell_level() end
+
+function eq.get_spell_minimum_level() end
+
+function eq.get_spell_nimbus_effect() end
+
+function eq.get_spell_partial_magic_rune_amount() end
+
+function eq.get_spell_partial_magic_rune_reduction() end
+
+function eq.get_spell_partial_melee_rune_amount() end
+
+function eq.get_spell_partial_melee_rune_reduction() end
+
+function eq.get_spell_proc_limit_timer() end
+
+function eq.get_spell_resist_type() end
+
+function eq.get_spell_resurrection_sickness_check() end
+
+function eq.get_spell_target_type() end
+
+function eq.get_spell_trigger_spell_id() end
+
+function eq.get_spell_viral_maximum_spread_time() end
+
+function eq.get_spell_viral_minimum_spread_time() end
+
+function eq.get_spell_viral_spread_range() end
+
+function eq.get_timers() end
+
+function eq.get_zone() end
+
+---@param param1 number
+---@param param2? number
+function eq.get_zone_bypass_expansion_check(param1, param2) end
+
+---@param param1 number
+---@param param2? number
+function eq.get_zone_can_bind(param1, param2) end
+
+---@param param1 number
+---@param param2? number
+function eq.get_zone_can_combat(param1, param2) end
+
+---@param param1 number
+---@param param2? number
+function eq.get_zone_can_levitate(param1, param2) end
+
+---@param param1 number
+---@param param2? number
+function eq.get_zone_cast_outdoor(param1, param2) end
+
+---@param param1 number
+---@param param2? number
+function eq.get_zone_content_flags(param1, param2) end
+
+---@param param1 number
+---@param param2? number
+function eq.get_zone_content_flags_disabled(param1, param2) end
+
+---@param param1 number
+---@param param2? number
+function eq.get_zone_expansion(param1, param2) end
+
+---@param param1 number
+---@param param2? number
+function eq.get_zone_experience_multiplier(param1, param2) end
+
+---@param param1 number
+---@param param2? number
+function eq.get_zone_fast_regen_endurance(param1, param2) end
+
+---@param param1 number
+---@param param2? number
+function eq.get_zone_fast_regen_hp(param1, param2) end
+
+---@param param1 number
+---@param param2? number
+function eq.get_zone_fast_regen_mana(param1, param2) end
+
+---@param param1 number
+---@param param2? number
+function eq.get_zone_flag_needed(param1, param2) end
+
+---@param param1 number
+---@param param2? number
+---@param param3? number
+function eq.get_zone_fog_blue(param1, param2, param3) end
+
+---@param param1 number
+---@param param2? number
+function eq.get_zone_fog_density(param1, param2) end
+
+---@param param1 number
+---@param param2? number
+---@param param3? number
+function eq.get_zone_fog_green(param1, param2, param3) end
+
+---@param param1 number
+---@param param2? number
+---@param param3? number
+function eq.get_zone_fog_maximum_clip(param1, param2, param3) end
+
+---@param param1 number
+---@param param2? number
+---@param param3? number
+function eq.get_zone_fog_minimum_clip(param1, param2, param3) end
+
+---@param param1 number
+---@param param2? number
+---@param param3? number
+function eq.get_zone_fog_red(param1, param2, param3) end
+
+---@param param1 number
+---@param param2? number
+function eq.get_zone_graveyard_id(param1, param2) end
+
+---@param param1 number
+---@param param2? number
+function eq.get_zone_gravity(param1, param2) end
+
+---@param param1 number
+---@param param2? number
+function eq.get_zone_hotzone(param1, param2) end
+
+function eq.get_zone_id_by_long_name() end
+
+---@param param1 number
+---@param param2? number
+function eq.get_zone_idle_when_empty(param1, param2) end
+
+---@param param1 number
+---@param param2? number
+function eq.get_zone_instance_type(param1, param2) end
+
+---@param param1 number
+---@param param2? number
+function eq.get_zone_lava_damage(param1, param2) end
+
+---@param param1 number
+---@param param2? number
+function eq.get_zone_maximum_clip(param1, param2) end
+
+---@param param1 number
+---@param param2? number
+function eq.get_zone_maximum_expansion(param1, param2) end
+
+---@param param1 number
+---@param param2? number
+function eq.get_zone_maximum_level(param1, param2) end
+
+---@param param1 number
+---@param param2? number
+function eq.get_zone_maximum_players(param1, param2) end
+
+---@param param1 number
+---@param param2? number
+function eq.get_zone_minimum_clip(param1, param2) end
+
+---@param param1 number
+---@param param2? number
+function eq.get_zone_minimum_expansion(param1, param2) end
+
+---@param param1 number
+---@param param2? number
+function eq.get_zone_minimum_lava_damage(param1, param2) end
+
+---@param param1 number
+---@param param2? number
+function eq.get_zone_minimum_level(param1, param2) end
+
+---@param param1 number
+---@param param2? number
+function eq.get_zone_minimum_status(param1, param2) end
+
+---@param param1 number
+---@param param2? number
+function eq.get_zone_note(param1, param2) end
+
+---@param param1 number
+---@param param2? number
+function eq.get_zone_npc_maximum_aggro_distance(param1, param2) end
+
+---@param param1 number
+---@param param2? number
+function eq.get_zone_peqzone(param1, param2) end
+
+---@param param1 number
+---@param param2? number
+function eq.get_zone_rain_chance(param1, param2) end
+
+---@param param1 number
+---@param param2? number
+function eq.get_zone_rain_duration(param1, param2) end
+
+---@param param1 number
+---@param param2? number
+function eq.get_zone_rule_set(param1, param2) end
+
+---@param param1 number
+---@param param2? number
+function eq.get_zone_safe_heading(param1, param2) end
+
+---@param param1 number
+---@param param2? number
+function eq.get_zone_safe_x(param1, param2) end
+
+---@param param1 number
+---@param param2? number
+function eq.get_zone_safe_y(param1, param2) end
+
+---@param param1 number
+---@param param2? number
+function eq.get_zone_safe_z(param1, param2) end
+
+---@param param1 number
+---@param param2? number
+function eq.get_zone_seconds_before_idle(param1, param2) end
+
+function eq.get_zone_short_name_by_long_name() end
+
+---@param param1 number
+---@param param2? number
+function eq.get_zone_shutdown_delay(param1, param2) end
+
+---@param param1 number
+---@param param2? number
+function eq.get_zone_sky(param1, param2) end
+
+---@param param1 number
+---@param param2? number
+function eq.get_zone_sky_lock(param1, param2) end
+
+---@param param1 number
+---@param param2? number
+function eq.get_zone_snow_chance(param1, param2) end
+
+---@param param1 number
+---@param param2? number
+function eq.get_zone_snow_duration(param1, param2) end
+
+---@param param1 number
+---@param param2? number
+function eq.get_zone_suspend_buffs(param1, param2) end
+
+---@param param1 number
+---@param param2? number
+function eq.get_zone_time_type(param1, param2) end
+
+---@param param1 number
+---@param param2? number
+function eq.get_zone_time_zone(param1, param2) end
+
+---@param param1 number
+---@param param2? number
+function eq.get_zone_type(param1, param2) end
+
+---@param param1 number
+---@param param2? number
+function eq.get_zone_underworld(param1, param2) end
+
+---@param param1 number
+---@param param2? number
+function eq.get_zone_underworld_teleport_index(param1, param2) end
+
+function eq.get_zone_uptime() end
+
+---@param param1 number
+---@param param2? number
+function eq.get_zone_walk_speed(param1, param2) end
+
+---@param param1 number
+---@param param2? number
+function eq.get_zone_ztype(param1, param2) end
+
+function eq.handin() end
+
+function eq.is_ae_duration_spell() end
+
+function eq.is_ae_nuke_spell() end
+
+function eq.is_ae_rain_nuke_spell() end
+
+function eq.is_alliance_spell() end
+
+function eq.is_bard_only_stack_effect() end
+
+function eq.is_bard_song() end
+
+function eq.is_beneficial_spell() end
+
+function eq.is_blank_spell_effect() end
+
+function eq.is_blind_spell() end
+
+function eq.is_buff_spell() end
+
+function eq.is_cast_not_standing_spell() end
+
+function eq.is_cast_on_fade_duration_spell() end
+
+function eq.is_cast_restricted_spell() end
+
+function eq.is_cast_time_reduction_spell() end
+
+function eq.is_cast_while_invisible_spell() end
+
+function eq.is_charm_spell() end
+
+function eq.is_combat_skill() end
+
+function eq.is_complete_heal_duration_spell() end
+
+function eq.is_complete_heal_spell() end
+
+function eq.is_cure_spell() end
+
+function eq.is_damage_spell() end
+
+function eq.is_death_save_spell() end
+
+function eq.is_debuff_spell() end
+
+function eq.is_detrimental_spell() end
+
+function eq.is_discipline() end
+
+function eq.is_discipline_buff() end
+
+function eq.is_disease_counter_spell() end
+
+function eq.is_distance_modifier_spell() end
+
+function eq.is_effect_ignored_in_stacking() end
+
+function eq.is_effect_in_spell() end
+
+function eq.is_fast_heal_spell() end
+
+function eq.is_fear_spell() end
+
+function eq.is_focus_limit() end
+
+function eq.is_full_death_save_spell() end
+
+function eq.is_gate_spell() end
+
+function eq.is_group_complete_heal_spell() end
+
+function eq.is_group_heal_over_time_spell() end
+
+function eq.is_group_only_spell() end
+
+function eq.is_group_spell() end
+
+function eq.is_harmony_spell() end
+
+function eq.is_haste_spell() end
+
+function eq.is_heal_over_time_spell() end
+
+function eq.is_health_spell() end
+
+function eq.is_illusion_spell() end
+
+function eq.is_improved_damage_spell() end
+
+function eq.is_improved_healing_spell() end
+
+function eq.is_increase_duration_spell() end
+
+function eq.is_increase_range_spell() end
+
+function eq.is_instrument_modifier_applied_to_spell_effect() end
+
+function eq.is_invisible_spell() end
+
+function eq.is_invulnerability_spell() end
+
+function eq.is_ldon_object_spell() end
+
+function eq.is_lifetap_spell() end
+
+function eq.is_magic_rune_spell() end
+
+function eq.is_mana_cost_reduction_spell() end
+
+function eq.is_mana_tap_spell() end
+
+function eq.is_mesmerize_spell() end
+
+function eq.is_no_detrimental_spell_aggro_spell() end
+
+function eq.is_partial_death_save_spell() end
+
+function eq.is_partial_resistable_spell() end
+
+function eq.is_pbae_nuke_spell() end
+
+function eq.is_percental_heal_spell() end
+
+function eq.is_persist_death_spell() end
+
+function eq.is_pet_spell() end
+
+function eq.is_poison_counter_spell() end
+
+function eq.is_pulsing_bard_song() end
+
+function eq.is_pure_nuke_spell() end
+
+function eq.is_regular_group_heal_spell() end
+
+function eq.is_regular_single_target_heal_spell() end
+
+function eq.is_resist_debuff_spell() end
+
+function eq.is_resistable_spell() end
+
+function eq.is_rest_allowed_spell() end
+
+function eq.is_resurrection_effects() end
+
+function eq.is_rune_spell() end
+
+function eq.is_sacrifice_spell() end
+
+function eq.is_self_conversion_spell() end
+
+function eq.is_shadow_step_spell() end
+
+function eq.is_short_duration_buff() end
+
+---@param param1 number
+---@param param2? number
+function eq.is_spell_usable_in_this_zone_type(param1, param2) end
+
+function eq.is_stackable_dot() end
+
+function eq.is_stun_spell() end
+
+function eq.is_succor_spell() end
+
+function eq.is_summon_item_spell() end
+
+function eq.is_summon_pc_spell() end
+
+function eq.is_summon_pet_spell() end
+
+function eq.is_summon_skeleton_spell() end
+
+function eq.is_summon_spell() end
+
+function eq.is_suspendable_spell() end
+
+function eq.is_target_required_for_spell() end
+
+function eq.is_targetable_ae_spell() end
+
+function eq.is_teleport_spell() end
+
+function eq.is_tgb_compatible_spell() end
+
+function eq.is_translocate_spell() end
+
+function eq.is_valid_spell() end
+
+function eq.is_very_fast_heal_spell() end
+
+function eq.is_virus_spell() end
+
+function eq.load_encounter() end
+
+function eq.load_encounter_with_data() end
+
+---@param param1 string
+function eq.log_spells(param1) end
+
+function eq.self_cast() end
+
+---@param param1 Client
+---@param param2 string
+---@param param3 number
+---@param param4 number
+---@param param5 number
+---@param param6? number
+---@param param7? string
+function eq.send_channel_message(param1, param2, param3, param4, param5, param6, param7) end
+
+function eq.send_parcel() end
+
+function eq.send_player_handin_event() end
+
+function eq.set_auto_login_character_name_by_account_id() end
+
+---@param param1 number
+---@param param2 number
+---@param param3? number
+---@param param4? boolean
+function eq.set_proximity_range(param1, param2, param3, param4) end
+
+---@param param1 string
+---@param param2? string
+function eq.silent_say_link(param1, param2) end
+
+function eq.spawn_circle() end
+
+function eq.spawn_grid() end
+
+function eq.time_to_seconds() end
+
+function eq.uncomplete_task() end
+
+function eq.unload_encounter() end
+
+function eq.unload_encounter_with_data() end

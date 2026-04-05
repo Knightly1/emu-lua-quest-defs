@@ -2,6 +2,8 @@
 
 ---TODO: definition for Object
 ---@class Object : Entity
+---@field null boolean
+---@field valid boolean
 Object = {}
 
 function Object:ClearUser() end
@@ -87,3 +89,13 @@ function Object:SetZ(z) end
 function Object:StartDecay() end
 
 function Object:VarSave() end
+
+---@return boolean
+function Object:ClearEntityVariables() end
+
+---@param variable_name string # Variable name
+---@return boolean
+function Object:DeleteEntityVariable(variable_name) end
+
+---@return table
+function Object:GetEntityVariables() end
