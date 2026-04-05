@@ -4,27 +4,44 @@
 Database = {}
 
 ---@field Content number
-
 ---@field Default number
 
 function Database:close() end
 
-function Database:execute() end
+---@param query string # SQL query string with ? placeholders
+---@return MySQLPreparedStmt # Prepared statement object
+function Database:prepare(query) end
 
-function Database:fetch() end
+---@class MySQLPreparedStmt
+MySQLPreparedStmt = {}
 
-function Database:fetch_array() end
+function MySQLPreparedStmt:close() end
 
-function Database:fetch_hash() end
+function MySQLPreparedStmt:execute() end
 
-function Database:insert_id() end
+---@param args table # Bind parameter values
+function MySQLPreparedStmt:execute(args) end
 
-function Database:num_fields() end
+---@return table # Row as numerically-indexed array
+function MySQLPreparedStmt:fetch() end
 
-function Database:num_rows() end
+---@return table # Row as numerically-indexed array
+function MySQLPreparedStmt:fetch_array() end
 
-function Database:prepare() end
+---@return table # Row as string-keyed hash
+function MySQLPreparedStmt:fetch_hash() end
 
-function Database:rows_affected() end
+---@return number # Last auto-increment insert ID
+function MySQLPreparedStmt:insert_id() end
 
-function Database:set_options() end
+---@return number # Number of columns in result set
+function MySQLPreparedStmt:num_fields() end
+
+---@return number # Number of rows in result set
+function MySQLPreparedStmt:num_rows() end
+
+---@return number # Number of rows affected by last statement
+function MySQLPreparedStmt:rows_affected() end
+
+---@param table_opts table # Options table for statement behavior
+function MySQLPreparedStmt:set_options(table_opts) end
