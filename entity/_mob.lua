@@ -7,6 +7,11 @@ Mob = {}
 ---@param effect_id number # TODO: definition of parameter
 function Mob:AddNimbusEffect(effect_id) end
 
+---@overload fun(other: Mob): nil
+---@overload fun(other: Mob, hate: number): nil
+---@overload fun(other: Mob, hate: number, damage: number): nil
+---@overload fun(other: Mob, hate: number, damage: number, yell_for_help: boolean): nil
+---@overload fun(other: Mob, hate: number, damage: number, yell_for_help: boolean, frenzy: boolean): nil
 ---@param other Mob # TODO: definition of parameter
 ---@param hate number # TODO: definition of parameter
 ---@param damage? number # TODO: definition of parameter
@@ -15,10 +20,18 @@ function Mob:AddNimbusEffect(effect_id) end
 ---@param buff_tic? boolean # TODO: definition of parameter
 function Mob:AddToHateList(other, hate, damage, yell_for_help, frenzy, buff_tic) end
 
+---@overload fun(spell_id: number): nil
+---@overload fun(spell_id: number, duration: number): nil
 ---@param spell_id number # TODO: definition of parameter
 ---@param duration? number # TODO: definition of parameter
-function Mob:ApplySpellBuff(spell_id, duration) end
+---@param level? number
+function Mob:ApplySpellBuff(spell_id, duration, level) end
 
+---@overload fun(other: Mob): boolean
+---@overload fun(other: Mob, hand: number): boolean
+---@overload fun(other: Mob, hand: number, from_riposte: boolean): boolean
+---@overload fun(other: Mob, hand: number, from_riposte: boolean, is_strikethrough: boolean): boolean
+---@overload fun(other: Mob, hand: number, from_riposte: boolean, is_strikethrough: boolean, is_from_spell: boolean): boolean
 ---@param other Mob # TODO: definition of parameter
 ---@param hand? number # TODO: definition of parameter
 ---@param from_riposte? number # TODO: definition of parameter (and type this)
@@ -33,21 +46,30 @@ function Mob:Attack(other, hand, from_riposte, is_strikethrough, is_from_spell, 
 ---@return number # skill id based on weapon/hand
 function Mob:AttackAnimation(Hand, weapon) end
 
+---@overload fun(): boolean
+---@overload fun(other: Mob): boolean
+---@overload fun(other: Mob, x: number): boolean
 ---@param other? Mob # TODO: definition of parameter
 ---@param x? number # TODO: definition of parameter
 ---@param y? number # TODO: definition of parameter
 ---@return boolean # true if behind mob
 function Mob:BehindMob(other, x, y) end
 
+---@overload fun(): number
+---@overload fun(is_beneficial: boolean): number
+---@param is_beneficial? boolean
+---@param is_detrimental? boolean
 ---@return number # count of buffs on mob
-function Mob:BuffCount() end
+function Mob:BuffCount(is_beneficial, is_detrimental) end
 
 function Mob:BuffFadeAll() end
 
+---@overload fun(effect_id: number): nil
 ---@param effect_id number # TODO: definition of parameter
 ---@param skipslot? number # TODO: definition of parameter
 function Mob:BuffFadeByEffect(effect_id, skipslot) end
 
+---@overload fun(slot: number): nil
 ---@param slot number # TODO: definition of parameter
 ---@param recalc_bonuses? boolean # TODO: definition of parameter
 function Mob:BuffFadeBySlot(slot, recalc_bonuses) end
@@ -55,6 +77,7 @@ function Mob:BuffFadeBySlot(slot, recalc_bonuses) end
 ---@param spell_id number # TODO: definition of parameter
 function Mob:BuffFadeBySpellID(spell_id) end
 
+---@overload fun(mob: Mob): number
 ---@param x number # TODO: definition of parameter
 ---@param y number # TODO: definition of parameter
 ---@param z number # TODO: definition of parameter
@@ -66,12 +89,15 @@ function Mob:CalculateDistance(x, y, z) end
 ---@return number # distance as a double
 function Mob:CalculateHeadingToTarget(in_x, in_y) end
 
+---@overload fun(duration: number, intensity: number): nil
+---@overload fun(duration: number, intensity: number, c: Client): nil
 ---@param duration number # TODO: definition of parameter
 ---@param intensity number # TODO: definition of parameter
 ---@param c? Client # TODO: definition of parameter
 ---@param global? boolean # TODO: definition of parameter
 function Mob:CameraEffect(duration, intensity, c, global) end
 
+---@overload fun(spell_id: number, caster_level: number): number
 ---@param spell_id number # TODO: definition of parameter (and type this)
 ---@param caster_level number # TODO: definition of parameter (and type this)
 ---@param fail_if_overwrite? boolean # TODO: definition of parameter
@@ -104,6 +130,12 @@ function Mob:CanThisClassParry() end
 ---@return number # true when a mob's class can riposte
 function Mob:CanThisClassRiposte() end
 
+---@overload fun(spell_id: number, target_id: number): boolean
+---@overload fun(spell_id: number, target_id: number, slot: number): boolean
+---@overload fun(spell_id: number, target_id: number, slot: number, cast_time: number): boolean
+---@overload fun(spell_id: number, target_id: number, slot: number, cast_time: number, mana_cost: number): boolean
+---@overload fun(spell_id: number, target_id: number, slot: number, cast_time: number, mana_cost: number, item_slot: number): boolean
+---@overload fun(spell_id: number, target_id: number, slot: number, cast_time: number, mana_cost: number, item_slot: number, timer: number, timer_duration: number): boolean
 ---@param spell_id number # TODO: definition of parameter
 ---@param target_id number # TODO: definition of parameter
 ---@param slot? number # TODO: definition of parameter
@@ -111,8 +143,10 @@ function Mob:CanThisClassRiposte() end
 ---@param mana_cost? number # TODO: definition of parameter
 ---@param item_slot? number # TODO: definition of parameter
 ---@param timer? number # TODO: definition of parameter
+---@param timer_duration? number
+---@param resist_adjust? number
 ---@return boolean # true when a spell cast starts successfully
-function Mob:CastSpell(spell_id, target_id, slot, cast_time, mana_cost, item_slot, timer) end
+function Mob:CastSpell(spell_id, target_id, slot, cast_time, mana_cost, item_slot, timer, timer_duration, resist_adjust) end
 
 ---@param value number # TODO: definition of parameter
 function Mob:ChangeBeard(value) end
@@ -153,6 +187,7 @@ function Mob:ChangeLuclinFace(value) end
 ---@param value number # TODO: definition of parameter
 function Mob:ChangeRace(value) end
 
+---@overload fun(in_size: number): nil
 ---@param in_size number # TODO: definition of parameter
 ---@param no_restriction? boolean # TODO: definition of parameter
 function Mob:ChangeSize(in_size, no_restriction) end
@@ -167,11 +202,13 @@ function Mob:Charmed() end
 ---@return boolean # true when a mob is aggro'd
 function Mob:CheckAggro(other) end
 
+---@overload fun(spell_id: number): number
 ---@param spell_id number # TODO: definition of parameter (and type this)
 ---@param is_proc? boolean # TODO: definition of parameter
 ---@return number # amount of aggro of a spell
 function Mob:CheckAggroAmount(spell_id, is_proc) end
 
+---@overload fun(spell_id: number): number
 ---@param spell_id number # TODO: definition of parameter (and type this)
 ---@param heal_possible? number # TODO: definition of parameter
 ---@return number # amount of aggro of a spell
@@ -181,6 +218,7 @@ function Mob:CheckHealAggroAmount(spell_id, heal_possible) end
 ---@return boolean # true if other is Line of Sight
 function Mob:CheckLoS(other) end
 
+---@overload fun(x: number, y: number, z: number): boolean
 ---@param x number # TODO: definition of parameter
 ---@param y number # TODO: definition of parameter
 ---@param z number # TODO: definition of parameter
@@ -199,6 +237,7 @@ function Mob:ClearSpecialAbilities() end
 ---@param other Mob # TODO: definition of parameter
 function Mob:CloneAppearance(other) end
 
+---@overload fun(other: Mob): nil
 ---@param other Mob # TODO: definition of parameter
 ---@param clone_name boolean # TODO: definition of parameter
 function Mob:CloneAppearance(other, clone_name) end
@@ -207,6 +246,9 @@ function Mob:CloneAppearance(other, clone_name) end
 ---@return boolean # true when in combat range (can auto attack)
 function Mob:CombatRange(other) end
 
+---@overload fun(from: Mob, damage: number, spell_id: number, attack_skill: number): nil
+---@overload fun(from: Mob, damage: number, spell_id: number, attack_skill: number, avoidable: boolean): nil
+---@overload fun(from: Mob, damage: number, spell_id: number, attack_skill: number, avoidable: boolean, buffslot: number): nil
 ---@param from Mob # TODO: definition of parameter
 ---@param damage number # TODO: definition of parameter
 ---@param spell_id number # TODO: definition of parameter
@@ -216,22 +258,27 @@ function Mob:CombatRange(other) end
 ---@param buff_tic? boolean # TODO: definition of parameter
 function Mob:Damage(from, damage, spell_id, attack_skill, avoidable, buffslot, buff_tic) end
 
+---@overload fun(damage: number): nil
 ---@param damage number # TODO: definition of parameter
 ---@param distance? number # TODO: definition of parameter
 function Mob:DamageArea(damage, distance) end
 
+---@overload fun(damage: number): nil
 ---@param damage number # TODO: definition of parameter
 ---@param distance? number # TODO: definition of parameter
 function Mob:DamageAreaBots(damage, distance) end
 
+---@overload fun(damage: number): nil
 ---@param damage number # TODO: definition of parameter
 ---@param distance? number # TODO: definition of parameter
 function Mob:DamageAreaBotsPercentage(damage, distance) end
 
+---@overload fun(damage: number): nil
 ---@param damage number # TODO: definition of parameter
 ---@param distance? number # TODO: definition of parameter
 function Mob:DamageAreaClients(damage, distance) end
 
+---@overload fun(damage: number): nil
 ---@param damage number # TODO: definition of parameter
 ---@param distance? number # TODO: definition of parameter
 function Mob:DamageAreaClientsPercentage(damage, distance) end
@@ -240,29 +287,37 @@ function Mob:DamageAreaClientsPercentage(damage, distance) end
 ---@param distance number # TODO: definition of parameter
 function Mob:DamageAreaNPCs(damage, distance) end
 
+---@overload fun(damage: number): nil
 ---@param damage number # TODO: definition of parameter
-function Mob:DamageAreaNPCs(damage) end
+---@param distance? number
+function Mob:DamageAreaNPCs(damage, distance) end
 
+---@overload fun(damage: number): nil
 ---@param damage number # TODO: definition of parameter
 ---@param distance? number # TODO: definition of parameter
 function Mob:DamageAreaNPCsPercentage(damage, distance) end
 
+---@overload fun(damage: number): nil
 ---@param damage number # TODO: definition of parameter
 ---@param distance? number # TODO: definition of parameter
 function Mob:DamageAreaPercentage(damage, distance) end
 
+---@overload fun(damage: number): nil
 ---@param damage number # TODO: definition of parameter
 ---@param distance? number # TODO: definition of parameter
 function Mob:DamageHateList(damage, distance) end
 
+---@overload fun(damage: number): nil
 ---@param damage number # TODO: definition of parameter
 ---@param distance? number # TODO: definition of parameter
 function Mob:DamageHateListBotsPercentage(damage, distance) end
 
+---@overload fun(damage: number): nil
 ---@param damage number # TODO: definition of parameter
 ---@param distance? number # TODO: definition of parameter
 function Mob:DamageHateListClients(damage, distance) end
 
+---@overload fun(damage: number): nil
 ---@param damage number # TODO: definition of parameter
 ---@param distance? number # TODO: definition of parameter
 function Mob:DamageHateListClientsPercentage(damage, distance) end
@@ -271,12 +326,15 @@ function Mob:DamageHateListClientsPercentage(damage, distance) end
 ---@param distance number # TODO: definition of parameter
 function Mob:DamageHateListNPCs(damage, distance) end
 
+---@overload fun(damage: number): nil
 ---@param damage number # TODO: definition of parameter
-function Mob:DamageHateListNPCs(damage) end
+---@param distance? number
+function Mob:DamageHateListNPCs(damage, distance) end
 
 ---@param damage number # TODO: definition of parameter
 function Mob:DamageHateListNPCsPercentage(damage) end
 
+---@overload fun(damage: number): nil
 ---@param damage number # TODO: definition of parameter
 ---@param distance? number # TODO: definition of parameter
 function Mob:DamageHateListNPCsPercentage(damage, distance) end
@@ -291,24 +349,34 @@ function Mob:DeleteBucket(bucket_name) end
 ---@return boolean # true when a delete occurs
 function Mob:DeleteEntityVariable(variable_name) end
 
+---@overload fun(): nil
 ---@param start_spawn_timer? boolean # TODO: definition of parameter
 function Mob:Depop(start_spawn_timer) end
 
 ---@return boolean # true when mob has divine aura active
 function Mob:DivineAura() end
 
+---@overload fun(animation_id: number): nil
+---@overload fun(animation_id: number, animation_speed: number): nil
+---@overload fun(animation_id: number, animation_speed: number, ackreq: boolean): nil
 ---@param anim_num number # TODO: definition of parameter
 ---@param type? number # TODO: definition of parameter
 ---@param ackreq? boolean # TODO: definition of parameter
 ---@param filter? number # TODO: definition of parameter
 function Mob:DoAnim(anim_num, type, ackreq, filter) end
 
+---@overload fun(other: Mob): nil
+---@overload fun(other: Mob, range_weapon: ItemInst): nil
+---@overload fun(other: Mob, range_weapon: ItemInst, ammo: ItemInst): nil
+---@overload fun(other: Mob, range_weapon: ItemInst, ammo: ItemInst, weapon_damage: number): nil
+---@overload fun(other: Mob, range_weapon: ItemInst, ammo: ItemInst, weapon_damage: number, chance_mod: number): nil
 ---@param other Mob # TODO: definition of parameter
 ---@param range_weapon? ItemInst # TODO: definition of parameter
 ---@param ammo? ItemInst # TODO: definition of parameter
 ---@param weapon_damage? number # TODO: definition of parameter
 ---@param chance_mod? number # TODO: definition of parameter
-function Mob:DoArcheryAttackDmg(other, range_weapon, ammo, weapon_damage, chance_mod) end
+---@param focus? number
+function Mob:DoArcheryAttackDmg(other, range_weapon, ammo, weapon_damage, chance_mod, focus) end
 
 ---@param caster Mob # TODO: definition of parameter
 ---@param push_back number # TODO: definition of parameter
@@ -323,13 +391,20 @@ function Mob:DoKnockback(caster, push_back, push_up) end
 ---@param can_riposte? boolean # TODO: definition of parameter
 function Mob:DoMeleeSkillAttackDmg(other, weapon_damage, skill, chance_mod, focus, can_riposte) end
 
+---@overload fun(other: Mob, weapon_damage: number, skill: number): nil
+---@overload fun(other: Mob, weapon_damage: number, skill: number, chance_mod: number): nil
+---@overload fun(other: Mob, weapon_damage: number, skill: number, chance_mod: number, focus: number): nil
 ---@param other Mob # TODO: definition of parameter
 ---@param weapon_damage number # TODO: definition of parameter
 ---@param skill number # TODO: definition of parameter
----@param chance_mod number # TODO: definition of parameter
----@param focus number # TODO: definition of parameter
-function Mob:DoMeleeSkillAttackDmg(other, weapon_damage, skill, chance_mod, focus) end
+---@param chance_mod? number # TODO: definition of parameter
+---@param focus? number # TODO: definition of parameter
+---@param can_riposte? boolean
+function Mob:DoMeleeSkillAttackDmg(other, weapon_damage, skill, chance_mod, focus, can_riposte) end
 
+---@overload fun(other: Mob, skill: number, max_damage: number): nil
+---@overload fun(other: Mob, skill: number, max_damage: number, min_damage: number): nil
+---@overload fun(other: Mob, skill: number, max_damage: number, min_damage: number, hate_override: number): nil
 ---@param other Mob # TODO: definition of parameter
 ---@param skill number # TODO: definition of parameter
 ---@param max_damage number # TODO: definition of parameter
@@ -338,12 +413,18 @@ function Mob:DoMeleeSkillAttackDmg(other, weapon_damage, skill, chance_mod, focu
 ---@param reuse_time? number # TODO: definition of parameter
 function Mob:DoSpecialAttackDamage(other, skill, max_damage, min_damage, hate_override, reuse_time) end
 
+---@overload fun(other: Mob): nil
+---@overload fun(other: Mob, range_weapon: ItemInst): nil
+---@overload fun(other: Mob, range_weapon: ItemInst, item: Item): nil
+---@overload fun(other: Mob, range_weapon: ItemInst, item: Item, weapon_damage: number): nil
+---@overload fun(other: Mob, range_weapon: ItemInst, item: Item, weapon_damage: number, chance_mod: number): nil
 ---@param other Mob # TODO: definition of parameter
 ---@param range_weapon? ItemInst # TODO: definition of parameter
 ---@param item? Item # TODO: definition of parameter
 ---@param weapon_damage? number # TODO: definition of parameter
 ---@param chance_mod? number # TODO: definition of parameter
-function Mob:DoThrowingAttackDmg(other, range_weapon, item, weapon_damage, chance_mod) end
+---@param focus? number
+function Mob:DoThrowingAttackDmg(other, range_weapon, item, weapon_damage, chance_mod, focus) end
 
 ---@param other Mob # TODO: definition of parameter
 function Mob:DoubleAggro(other) end --- Doubles mob's aggro on other
@@ -358,9 +439,11 @@ function Mob:EntityVariableExists(name) end
 ---@param target Mob # TODO: definition of parameter
 function Mob:FaceTarget(target) end
 
+---@overload fun(spell_id: number): boolean
 ---@param spell_id number # TODO: definition of parameter
+---@param caster_id? number
 ---@return boolean # true when buff of spell_id is found on mob
-function Mob:FindBuff(spell_id) end
+function Mob:FindBuff(spell_id, caster_id) end
 
 ---@param slot number # TODO: definition of parameter
 ---@return number # spell_id of buff on slot if any
@@ -371,22 +454,28 @@ function Mob:FindBuffBySlot(slot) end
 ---@return number # z position of ground
 function Mob:FindGroundZ(x, y) end
 
+---@overload fun(x: number, y: number): number
 ---@param x number # TODO: definition of parameter (and type this)
 ---@param y number # TODO: definition of parameter (and type this)
 ---@param z number # TODO: definition of parameter (and type this)
 function Mob:FindGroundZ(x, y, z) end
 
+---@overload fun(type: number): boolean
+---@overload fun(type: number, offensive: boolean): boolean
 ---@param type number # TODO: definition of parameter
 ---@param offensive? number # TODO: definition of parameter (and type this)
 ---@param threshold? number # TODO: definition of parameter
 ---@return boolean # true if the type is found
 function Mob:FindType(type, offensive, threshold) end
 
+---@overload fun(x: number, y: number, z: number): nil
+---@overload fun(x: number, y: number, z: number, heading: number): nil
 ---@param x number # TODO: definition of parameter
 ---@param y number # TODO: definition of parameter
 ---@param z number # TODO: definition of parameter
 ---@param heading? number # TODO: definition of parameter
-function Mob:GMMove(x, y, z, heading) end
+---@param save_guard_spot? boolean
+function Mob:GMMove(x, y, z, heading, save_guard_spot) end
 
 ---@param id number # TODO: definition of parameter (and type this)
 ---@return number
@@ -566,13 +655,16 @@ function Mob:GetHandToHandDelay() end
 ---@return number
 function Mob:GetHaste() end
 
+---@overload fun(target: Mob): number
 ---@param target Mob # TODO: definition of parameter
 ---@param is_damage? boolean # TODO: definition of parameter
 ---@return number
 function Mob:GetHateAmount(target, is_damage) end
 
+---@overload fun(): Mob
+---@param skip_mezzed? boolean
 ---@return Mob
-function Mob:GetHateClosest() end
+function Mob:GetHateClosest(skip_mezzed) end
 
 ---@param other number # TODO: definition of parameter (and type this)
 ---@return Mob
@@ -581,18 +673,22 @@ function Mob:GetHateDamageTop(other) end
 ---@return HateList
 function Mob:GetHateList() end
 
+---@overload fun(): HateList
 ---@param distance? number # TODO: definition of parameter
 ---@return HateList
 function Mob:GetHateListBots(distance) end
 
+---@overload fun(): HateList
 ---@param distance? number # TODO: definition of parameter
 ---@return HateList
 function Mob:GetHateListByDistance(distance) end
 
+---@overload fun(): HateList
 ---@param distance? number # TODO: definition of parameter
 ---@return HateList
 function Mob:GetHateListClients(distance) end
 
+---@overload fun(): HateList
 ---@param distance? number # TODO: definition of parameter
 ---@return HateList
 function Mob:GetHateListNPCs(distance) end
@@ -650,6 +746,7 @@ function Mob:GetLastName() end
 ---@return number
 function Mob:GetLevel() end
 
+---@overload fun(other: number): number
 ---@param my number # TODO: definition of parameter
 ---@param other? number # TODO: definition of parameter
 ---@return number
@@ -883,10 +980,12 @@ function Mob:HasTwoHanderEquipped() end
 
 function Mob:Heal() end
 
+---@overload fun(amount: number): nil
 ---@param amount number # TODO: definition of parameter
 ---@param other? Mob # TODO: definition of parameter
 function Mob:HealDamage(amount, other) end
 
+---@overload fun(): nil
 ---@param spell_id? number # TODO: definition of parameter
 function Mob:InterruptSpell(spell_id) end
 
@@ -896,6 +995,7 @@ function Mob:IsAIControlled() end
 ---@return boolean
 function Mob:IsAmnesiad() end
 
+---@overload fun(target: Mob): boolean
 ---@param target Mob # TODO: definition of parameter
 ---@param isSpellAttack number # TODO: definition of parameter (and type this)
 ---@return boolean
@@ -935,6 +1035,7 @@ function Mob:IsHorse() end
 ---@return boolean
 function Mob:IsImmuneToSpell(spell_id, caster) end
 
+---@overload fun(): boolean
 ---@param other? Mob # TODO: definition of parameter
 ---@return boolean
 function Mob:IsInvisible(other) end
@@ -996,6 +1097,8 @@ function Mob:ModSkillDmgTaken(skill, value) end
 ---@param value number # TODO: definition of parameter
 function Mob:ModVulnerability(resist, value) end
 
+---@overload fun(parse: string, perm: number): nil
+---@overload fun(parse: string, perm: number, reset: boolean): nil
 ---@param parse string # TODO: definition of parameter
 ---@param perm number # TODO: definition of parameter
 ---@param reset? boolean # TODO: definition of parameter
@@ -1041,14 +1144,21 @@ function Mob:ProjectileAnimation(to, item_id, is_arrow) end
 ---@param item_id number # TODO: definition of parameter
 function Mob:ProjectileAnimation(to, item_id) end
 
+---@overload fun(to: Mob, item_id: number): nil
+---@overload fun(to: Mob, item_id: number, is_arrow: boolean): nil
+---@overload fun(to: Mob, item_id: number, is_arrow: boolean, speed: number): nil
+---@overload fun(to: Mob, item_id: number, is_arrow: boolean, speed: number, angle: number): nil
+---@overload fun(to: Mob, item_id: number, is_arrow: boolean, speed: number, angle: number, tilt: number): nil
 ---@param to Mob # TODO: definition of parameter
 ---@param item_id number # TODO: definition of parameter
----@param is_arrow boolean # TODO: definition of parameter
----@param speed number # TODO: definition of parameter
----@param angle number # TODO: definition of parameter
----@param tilt number # TODO: definition of parameter
-function Mob:ProjectileAnimation(to, item_id, is_arrow, speed, angle, tilt) end
+---@param is_arrow? boolean # TODO: definition of parameter
+---@param speed? number # TODO: definition of parameter
+---@param angle? number # TODO: definition of parameter
+---@param tilt? number # TODO: definition of parameter
+---@param arc? number
+function Mob:ProjectileAnimation(to, item_id, is_arrow, speed, angle, tilt, arc) end
 
+---@overload fun(client: Client, message: string): nil
 ---@param client Client # TODO: definition of parameter
 ---@param message string # TODO: definition of parameter
 ---@param opts? Object # TODO: definition of parameter
@@ -1059,6 +1169,8 @@ function Mob:RandomizeFeatures(send_illusion) end
 
 function Mob:RandomizeFeatures() end
 
+---@overload fun(): boolean
+---@overload fun(send_illusion: boolean): boolean
 ---@param send_illusion number # TODO: definition of parameter (and type this)
 ---@param save_variables number # TODO: definition of parameter (and type this)
 function Mob:RandomizeFeatures(send_illusion, save_variables) end
@@ -1073,13 +1185,17 @@ function Mob:RemoveNimbusEffect(effect_id) end
 
 function Mob:RemovePet() end
 
+---@overload fun(resist_type: number, spell_id: number, caster: Mob): number
+---@overload fun(resist_type: number, spell_id: number, caster: Mob, use_resist_override: boolean): number
+---@overload fun(resist_type: number, spell_id: number, caster: Mob, use_resist_override: boolean, resist_override: number): number
 ---@param resist_type number # TODO: definition of parameter
 ---@param spell_id number # TODO: definition of parameter
 ---@param caster Mob # TODO: definition of parameter
 ---@param use_resist_override? boolean # TODO: definition of parameter
 ---@param resist_override? number # TODO: definition of parameter
+---@param charisma_check? boolean
 ---@return number
-function Mob:ResistSpell(resist_type, spell_id, caster, use_resist_override, resist_override) end
+function Mob:ResistSpell(resist_type, spell_id, caster, use_resist_override, resist_override, charisma_check) end
 
 ---@param x number # TODO: definition of parameter
 ---@param y number # TODO: definition of parameter
@@ -1089,6 +1205,7 @@ function Mob:RunTo(x, y, z) end
 ---@param message string # TODO: definition of parameter
 function Mob:Say(message) end
 
+---@overload fun(message: string): nil
 ---@param message string # TODO: definition of parameter
 ---@param language number # TODO: definition of parameter
 function Mob:Say(message, language) end
@@ -1112,6 +1229,7 @@ function Mob:SeeInvisibleUndead() end
 ---@param parm5 number # TODO: definition of parameter
 function Mob:SendAppearanceEffect(parm1, parm2, parm3, parm4, parm5) end
 
+---@overload fun(parm1: number, parm2: number, parm3: number, parm4: number, parm5: number): nil
 ---@param parm1 number # TODO: definition of parameter
 ---@param parm2 number # TODO: definition of parameter
 ---@param parm3 number # TODO: definition of parameter
@@ -1127,13 +1245,16 @@ function Mob:SendBeginCast(spell_id, cast_time) end
 ---@param illusion Object # TODO: definition of parameter
 function Mob:SendIllusionPacket(illusion) end
 
+---@overload fun(effect_id: number, duration: number, finish_delay: number, zone_wide: boolean, unk020: number): nil
+---@overload fun(effect_id: number, duration: number, finish_delay: number, zone_wide: boolean, unk020: number, perm_effect: boolean): nil
 ---@param effect_id number # TODO: definition of parameter
 ---@param duration number # TODO: definition of parameter
 ---@param finish_delay number # TODO: definition of parameter
 ---@param zone_wide boolean # TODO: definition of parameter
 ---@param unk020 number # TODO: definition of parameter
 ---@param perm_effect? boolean # TODO: definition of parameter
-function Mob:SendSpellEffect(effect_id, duration, finish_delay, zone_wide, unk020, perm_effect) end
+---@param c? Client
+function Mob:SendSpellEffect(effect_id, duration, finish_delay, zone_wide, unk020, perm_effect, c) end
 
 ---@param x number # TODO: definition of parameter
 ---@param y number # TODO: definition of parameter
@@ -1148,6 +1269,7 @@ function Mob:SendToFixZ(x, y, z) end
 ---@param material_slot number # TODO: definition of parameter
 function Mob:SendWearChange(material_slot) end
 
+---@overload fun(rank_id: number, new_value: number): boolean
 ---@param rank_id number # TODO: definition of parameter
 ---@param new_value number # TODO: definition of parameter
 ---@param charges? number # TODO: definition of parameter
@@ -1161,8 +1283,10 @@ function Mob:SetAllowBeneficial(value) end
 ---@param ignore_self boolean # TODO: definition of parameter
 function Mob:SetAppearance(app, ignore_self) end
 
+---@overload fun(app: number): nil
 ---@param app number # TODO: definition of parameter
-function Mob:SetAppearance(app) end
+---@param ignore_self? boolean
+function Mob:SetAppearance(app, ignore_self) end
 
 ---@param new_body number # TODO: definition of parameter
 ---@param overwrite_orig boolean # TODO: definition of parameter
@@ -1172,6 +1296,7 @@ function Mob:SetBodyType(new_body, overwrite_orig) end
 ---@param bucket_value string # TODO: definition of parameter
 function Mob:SetBucket(bucket_name, bucket_value) end
 
+---@overload fun(bucket_name: string, bucket_value: string): nil
 ---@param bucket_name string # TODO: definition of parameter
 ---@param bucket_value string # TODO: definition of parameter
 ---@param expiration string # TODO: definition of parameter
@@ -1180,9 +1305,12 @@ function Mob:SetBucket(bucket_name, bucket_value, expiration) end
 ---@param spell_id number # TODO: definition of parameter
 function Mob:SetBuffDuration(spell_id) end
 
+---@overload fun(spell_id: number): nil
+---@overload fun(spell_id: number, duration: number): nil
 ---@param spell_id number # TODO: definition of parameter
----@param duration number # TODO: definition of parameter
-function Mob:SetBuffDuration(spell_id, duration) end
+---@param duration? number # TODO: definition of parameter
+---@param level? number
+function Mob:SetBuffDuration(spell_id, duration, level) end
 
 ---@param wp number # TODO: definition of parameter
 function Mob:SetCurrentWP(wp) end
@@ -1197,8 +1325,10 @@ function Mob:SetDisableMelee(disable) end
 ---@param value string # TODO: definition of parameter
 function Mob:SetEntityVariable(name, value) end
 
+---@overload fun(haste: number): nil
 ---@param haste number # TODO: definition of parameter
-function Mob:SetExtraHaste(haste) end
+---@param need_to_save? boolean
+function Mob:SetExtraHaste(haste, need_to_save) end
 
 ---@param value number # TODO: definition of parameter
 function Mob:SetFlurryChance(value) end
@@ -1209,6 +1339,7 @@ function Mob:SetFlyMode(value) end
 ---@param value number # TODO: definition of parameter
 function Mob:SetGender(value) end
 
+---@overload fun(varname: string, newvalue: string, options: number, duration: string): nil
 ---@param name string # name of global variable
 ---@param newvalue string # TODO: definition of parameter
 ---@param options number # TODO: definition of parameter
@@ -1227,9 +1358,12 @@ function Mob:SetHate(other) end
 ---@param damage number # TODO: definition of parameter
 function Mob:SetHate(other, hate, damage) end
 
+---@overload fun(other: Mob): nil
+---@overload fun(other: Mob, hate: number): nil
 ---@param other Mob # TODO: definition of parameter
----@param hate number # TODO: definition of parameter
-function Mob:SetHate(other, hate) end
+---@param hate? number # TODO: definition of parameter
+---@param damage? number
+function Mob:SetHate(other, hate, damage) end
 
 ---@param value number # TODO: definition of parameter
 function Mob:SetHeading(value) end
@@ -1240,6 +1374,7 @@ function Mob:SetInvisible(state) end
 ---@param value boolean # TODO: definition of parameter
 function Mob:SetInvul(value) end
 
+---@overload fun(level: number): nil
 ---@param level number # TODO: definition of parameter
 ---@param command? boolean # TODO: definition of parameter
 function Mob:SetLevel(level, command) end
@@ -1299,8 +1434,10 @@ function Mob:SetTexture(value) end
 ---@param language number # TODO: definition of parameter
 function Mob:Shout(message, language) end
 
+---@overload fun(message: string): nil
 ---@param message string # TODO: definition of parameter
-function Mob:Shout(message) end
+---@param language_id? number
+function Mob:Shout(message, language_id) end
 
 ---@param signal_id number # TODO: definition of parameter
 function Mob:Signal(signal_id) end
@@ -1346,9 +1483,19 @@ function Mob:SpellFinished(spell_id, target, slot) end
 ---@param inventory_slot number # TODO: definition of parameter
 function Mob:SpellFinished(spell_id, target, slot, mana_used, inventory_slot) end
 
+---@overload fun(spell_id: number, target: Mob): boolean
+---@overload fun(spell_id: number, target: Mob, slot: number): boolean
+---@overload fun(spell_id: number, target: Mob, slot: number, mana_used: number): boolean
+---@overload fun(spell_id: number, target: Mob, slot: number, mana_used: number, inventory_slot: number): boolean
+---@overload fun(spell_id: number, target: Mob, slot: number, mana_used: number, inventory_slot: number, resist_adjust: number): boolean
 ---@param spell_id number # TODO: definition of parameter
 ---@param target Mob # TODO: definition of parameter
-function Mob:SpellFinished(spell_id, target) end
+---@param slot? number
+---@param mana_used? number
+---@param inventory_slot? number
+---@param resist_adjust? number
+---@param proc? boolean
+function Mob:SpellFinished(spell_id, target, slot, mana_used, inventory_slot, resist_adjust, proc) end
 
 function Mob:Spin() end
 
@@ -1365,6 +1512,7 @@ function Mob:Stun(duration) end
 ---@param zone_id number # TODO: definition of parameter
 function Mob:TarGlobal(name, value, duration, npc_id, char_id, zone_id) end
 
+---@overload fun(): nil
 ---@param newname? string # TODO: definition of parameter
 function Mob:TempName(newname) end
 
@@ -1379,6 +1527,7 @@ function Mob:TryFinishingBlow(defender, damage) end
 ---@param angle number # TODO: definition of parameter
 function Mob:TryMoveAlong(distance, angle) end
 
+---@overload fun(distance: number, heading: number): nil
 ---@param distance number # TODO: definition of parameter
 ---@param angle number # TODO: definition of parameter
 ---@param send boolean # TODO: definition of parameter
@@ -1391,13 +1540,20 @@ function Mob:UnStun() end
 ---@param z number # TODO: definition of parameter
 function Mob:WalkTo(x, y, z) end
 
+---@overload fun(material_slot: number, texture: number): nil
+---@overload fun(material_slot: number, texture: number, color: number): nil
 ---@param material_slot number # TODO: definition of parameter
 ---@param texture number # TODO: definition of parameter
----@param color number # TODO: definition of parameter
-function Mob:WearChange(material_slot, texture, color) end
+---@param color? number # TODO: definition of parameter
+---@param heros_forge_model? number
+function Mob:WearChange(material_slot, texture, color, heros_forge_model) end
 
 function Mob:WipeHateList() end
 
+---@overload fun(distance: number): nil
+---@overload fun(distance: number, slot_id: number): nil
+---@overload fun(distance: number, slot_id: number, count: number): nil
+---@overload fun(distance: number, slot_id: number, count: number, is_from_spell: boolean): nil
 ---@param distance number # Distance
 ---@param slot_id? number # Slot ID
 ---@param count? number # Count
@@ -1405,6 +1561,9 @@ function Mob:WipeHateList() end
 ---@param attack_rounds? number # Attack rounds
 function Mob:AreaAttack(distance, slot_id, count, is_from_spell, attack_rounds) end
 
+---@overload fun(center: Mob, spell_id: number): nil
+---@overload fun(center: Mob, spell_id: number, affect_caster: boolean): nil
+---@overload fun(center: Mob, spell_id: number, affect_caster: boolean, resist_adjust: number): nil
 ---@param center Mob # Center
 ---@param spell_id number # Spell ID
 ---@param affect_caster? boolean # Affect caster
@@ -1429,14 +1588,17 @@ function Mob:ClearEntityVariables() end
 ---@param to Mob # To
 function Mob:CopyHateList(to) end
 
+---@overload fun(damage: number): nil
 ---@param damage number # Damage amount
 ---@param distance? number # Distance
 function Mob:DamageHateListBots(damage, distance) end
 
+---@overload fun(damage: number): nil
 ---@param damage number # Damage amount
 ---@param distance? number # Distance
 function Mob:DamageHateListPercentage(damage, distance) end
 
+---@overload fun(spell_id: number, value: number, target: Mob): number
 ---@param spell_id number # Spell ID
 ---@param value number # Value
 ---@param target Mob # Target entity
@@ -1460,6 +1622,7 @@ function Mob:GetActSpellCasttime(spell_id, cast_time) end
 ---@return number
 function Mob:GetActSpellCost(spell_id, cost) end
 
+---@overload fun(spell_id: number, value: number): number
 ---@param spell_id number # Spell ID
 ---@param value number # Value
 ---@param target? Mob # Target entity
@@ -1471,6 +1634,8 @@ function Mob:GetActSpellDamage(spell_id, value, target) end
 ---@return number
 function Mob:GetActSpellDuration(spell_id, duration) end
 
+---@overload fun(spell_id: number, value: number): number
+---@overload fun(spell_id: number, value: number, target: Mob): number
 ---@param spell_id number # Spell ID
 ---@param value number # Value
 ---@param target? Mob # Target entity
@@ -1498,6 +1663,8 @@ function Mob:GetBuffs() end
 ---@return string
 function Mob:GetClassPlural() end
 
+---@overload fun(): MobList
+---@overload fun(distance: number): MobList
 ---@param distance? number # Distance
 ---@param ignore_self? boolean # Ignore self
 ---@return MobList
@@ -1507,6 +1674,8 @@ function Mob:GetCloseMobList(distance, ignore_self) end
 ---@return string
 function Mob:GetConsiderColor(other) end
 
+---@overload fun(): number
+---@overload fun(race_id: number): number
 ---@param race_id? number # Race ID
 ---@param gender_id? number # Gender id
 ---@return number
@@ -1518,14 +1687,17 @@ function Mob:GetDeityName() end
 ---@return number
 function Mob:GetExtraHaste() end
 
+---@overload fun(): Bot
 ---@param skip_mezzed? boolean # Skip mezzed
 ---@return Bot
 function Mob:GetHateClosestBot(skip_mezzed) end
 
+---@overload fun(): Client
 ---@param skip_mezzed? boolean # Skip mezzed
 ---@return Client
 function Mob:GetHateClosestClient(skip_mezzed) end
 
+---@overload fun(): NPC
 ---@param skip_mezzed? boolean # Skip mezzed
 ---@return NPC
 function Mob:GetHateClosestNPC(skip_mezzed) end
@@ -1646,6 +1818,7 @@ function Mob:IsTrackable() end
 ---@return boolean
 function Mob:IsWisdomCasterClass() end
 
+---@overload fun(center: Mob, spell_id: number): nil
 ---@param center Mob # Center
 ---@param spell_id number # Spell ID
 ---@param affect_caster? boolean # Affect caster
@@ -1668,6 +1841,7 @@ function Mob:RestoreMana() end
 ---@param timer_name string # Timer name
 function Mob:ResumeTimer(timer_name) end
 
+---@overload fun(payload_id: number): nil
 ---@param payload_id number # Payload id
 ---@param payload_value? string # Payload value
 function Mob:SendPayload(payload_id, payload_value) end

@@ -6,6 +6,8 @@
 ---@field valid boolean
 Corpse = {}
 
+---@overload fun(itemnum: number, charges: number): nil
+---@overload fun(itemnum: number, charges: number, slot: number): nil
 ---@param itemnum number # TODO: definition of parameter
 ---@param charges number # TODO: definition of parameter
 ---@param slot? number # TODO: definition of parameter
@@ -99,6 +101,7 @@ function Corpse:RemoveCash() end
 ---@param lootslot number # TODO: definition of parameter
 function Corpse:RemoveItem(lootslot) end
 
+---@overload fun(item_id: number): nil
 ---@param item_id number # TODO: definition of parameter
 ---@param quantity? number # TODO: definition of parameter
 function Corpse:RemoveItemByID(item_id, quantity) end

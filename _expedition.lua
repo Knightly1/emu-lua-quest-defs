@@ -10,6 +10,7 @@ Expedition = {}
 ---@param seconds number # TODO: definition of parameter
 function Expedition:AddLockout(event_name, seconds) end
 
+---@overload fun(event_name: string, seconds: number): nil
 ---@param event_name string # TODO: definition of parameter
 ---@param seconds number # TODO: definition of parameter
 ---@param members_only? boolean # TODO: definition of parameter
@@ -18,6 +19,7 @@ function Expedition:AddLockoutDuration(event_name, seconds, members_only) end
 ---@param seconds number # TODO: definition of parameter
 function Expedition:AddReplayLockout(seconds) end
 
+---@overload fun(seconds: number): nil
 ---@param seconds number # TODO: definition of parameter
 ---@param members_only? boolean # TODO: definition of parameter
 function Expedition:AddReplayLockoutDuration(seconds, members_only) end
@@ -84,6 +86,8 @@ function Expedition:SetLocked(lock_expedition) end
 ---@param lock_msg number # TODO: definition of parameter
 function Expedition:SetLocked(lock_expedition, lock_msg) end
 
+---@overload fun(lock_expedition: boolean): nil
+---@overload fun(lock_expedition: boolean, lock_msg: number): nil
 ---@param lock_expedition boolean # TODO: definition of parameter
 ---@param lock_msg number # TODO: definition of parameter
 ---@param msg_color number # TODO: definition of parameter
@@ -130,6 +134,7 @@ function Expedition:SetZoneInLocation(x, y, z, heading) end
 ---@param duration number # TODO: definition of parameter
 function Expedition:UpdateLockoutDuration(event_name, duration) end
 
+---@overload fun(event_name: string, duration: uint32_t): nil
 ---@param event_name string # TODO: definition of parameter
 ---@param duration number # TODO: definition of parameter
 ---@param members_only boolean # TODO: definition of parameter

@@ -21,17 +21,21 @@ function Client:AddAlternateCurrencyValue(currency, amount) end
 ---@param ebon number # Number of ebon crystals to add
 function Client:AddCrystals(radiant, ebon) end
 
+---@overload fun(add_exp: number): nil
+---@overload fun(add_exp: number, conlevel: number): nil
 ---@param add_exp number # Amount of experience to add
 ---@param conlevel? number # Use the conlevel to calculate the experience
 ---@param resexp? boolean # Is this resurrection experience?
 function Client:AddEXP(add_exp, conlevel, resexp) end
 
+---@overload fun(expedition_name: string, event_name: string, seconds: number): nil
 ---@param expedition_name string # Name of the expedition
 ---@param event_name string # Name of the event
 ---@param seconds number # Number of seconds to add to the lockout
 ---@param uuid? string # UUID of the lockout
 function Client:AddExpeditionLockout(expedition_name, event_name, seconds, uuid) end
 
+---@overload fun(expedition_name: string, event_name: string, seconds: number): nil
 ---@param expedition_name string # Name of the expedition
 ---@param event_name string # Name of the event
 ---@param seconds number # Number of seconds to add to the lockout
@@ -47,11 +51,14 @@ function Client:AddLDoNLoss(theme_id) end
 ---@param theme_id number # Theme ID to add wins to
 function Client:AddLDoNWin(theme_id) end
 
+---@overload fun(exp_pct: number): nil
+---@overload fun(exp_pct: number, max_level: number): nil
 ---@param exp_pct number # Percentage of experience to add
 ---@param max_level? number # Maximum level to add experience to
 ---@param ignore_mods? boolean # Ignore experience modifiers
 function Client:AddLevelBasedExp(exp_pct, max_level, ignore_mods) end
 
+---@overload fun(copper: number, silver: number, gold: number, platinum: number): nil
 ---@param copper number # Number of copper to add
 ---@param silver number # Number of silver to add
 ---@param gold number # Number of gold to add
@@ -59,6 +66,7 @@ function Client:AddLevelBasedExp(exp_pct, max_level, ignore_mods) end
 ---@param update_client? boolean # Update the client's money display
 function Client:AddMoneyToPP(copper, silver, gold, platinum, update_client) end
 
+---@overload fun(platinum: number): nil
 ---@param platinum number # Number of platinum to add
 ---@param update_client? boolean # Update the client's money display
 function Client:AddPlatinum(platinum, update_client) end
@@ -73,25 +81,43 @@ function Client:AddSkill(skill_id, value) end
 ---@return number # Returns the account status level of the client
 function Client:Admin() end
 
+---@overload fun(spell_id: number): nil
+---@overload fun(spell_id: number, duration: number): nil
+---@overload fun(spell_id: number, duration: number, level: number): nil
+---@overload fun(spell_id: number, duration: number, level: number, allow_pets: boolean): nil
 ---@param spell_id number # Spell ID to add to
 ---@param duration? number # Duration of the spell
+---@param level? number
 ---@param allow_pets? boolean # Allow pets to receive the spell
 ---@param allow_bots? boolean # Allow bots to receive the spell
-function Client:ApplySpell(spell_id, duration, allow_pets, allow_bots) end
+function Client:ApplySpell(spell_id, duration, level, allow_pets, allow_bots) end
 
+---@overload fun(spell_id: number): nil
+---@overload fun(spell_id: number, duration: number): nil
+---@overload fun(spell_id: number, duration: number, level: number): nil
+---@overload fun(spell_id: number, duration: number, level: number, allow_pets: boolean): nil
 ---@param spell_id number # Spell ID to add to
 ---@param duration? number # Duration of the spell
+---@param level? number
 ---@param allow_pets? boolean # Allow pets to receive the spell
 ---@param allow_bots? boolean # Allow bots to receive the spell
-function Client:ApplySpellGroup(spell_id, duration, allow_pets, allow_bots) end
+function Client:ApplySpellGroup(spell_id, duration, level, allow_pets, allow_bots) end
 
+---@overload fun(spell_id: number): nil
+---@overload fun(spell_id: number, duration: number): nil
+---@overload fun(spell_id: number, duration: number, level: number): nil
+---@overload fun(spell_id: number, duration: number, level: number, allow_pets: boolean): nil
+---@overload fun(spell_id: number, duration: number, level: number, allow_pets: boolean, is_raid_group_only: boolean): nil
 ---@param spell_id number # Spell ID to add to
----@param duration number # Duration of the spell
+---@param duration? number # Duration of the spell
+---@param level? number
 ---@param allow_pets? boolean # Allow pets to receive the spell
 ---@param is_raid_group_only? boolean # Only apply to raid group members
 ---@param allow_bots? boolean # Allow bots to receive the spell
-function Client:ApplySpellRaid(spell_id, duration, allow_pets, is_raid_group_only, allow_bots) end
+function Client:ApplySpellRaid(spell_id, duration, level, allow_pets, is_raid_group_only, allow_bots) end
 
+---@overload fun(task_id: number): nil
+---@overload fun(task_id: number, npc_id: number): nil
 ---@param task_id number # Task ID to assign
 ---@param npc_id? number # NPC ID to assign the task to
 ---@param enforce_level_requirement? boolean # Enforce the level requirement of the task
@@ -110,6 +136,7 @@ function Client:CalcATK() end
 ---@return number
 function Client:CalcCurrentWeight() end
 
+---@overload fun(consider_level: number): number
 ---@param consider_level number #
 ---@param ignore_modifiers boolean #
 ---@return number
@@ -120,9 +147,11 @@ function Client:CalcEXP(consider_level, ignore_modifiers) end
 ---@return number
 function Client:CalcPriceMod(other, reverse) end
 
+---@overload fun(): nil
 ---@param class_id? number #
 function Client:CampAllBots(class_id) end
 
+---@overload fun(zone_short_name: string): boolean
 ---@param short_name string
 ---@param instance_version? string
 ---@return boolean
@@ -144,6 +173,7 @@ function Client:ChangeLastName(last_name) end
 ---@return number
 function Client:CharacterID() end
 
+---@overload fun(skill_id: number, target: Mob): nil
 ---@param skill_id number #
 ---@param target Mob #
 ---@param chance_mod? number #
@@ -175,6 +205,8 @@ function Client:CountItem(item_id) end
 ---@return number
 function Client:CountItemEquippedByID(item_id) end
 
+---@overload fun(expedition_info: luabind::object): Expedition
+---@overload fun(zone_name: string, version: number, duration: number, expedition_name: string, min_players: number, max_players: number): Expedition
 ---@param zone_name string #
 ---@param version number #
 ---@param duration number #
@@ -183,7 +215,6 @@ function Client:CountItemEquippedByID(item_id) end
 ---@param max_players number #
 ---@param disable_messages? boolean #
 ---@return Expedition
----@overload fun(expedition_table:table):Expedition
 function Client:CreateExpedition(zone_name, version, duration, expedition_name, min_players, max_players, disable_messages) end
 
 ---@param dz_template_id number #
@@ -198,6 +229,7 @@ function Client:CreateTaskDynamicZone(task_id, dz_table) end
 ---@return boolean
 function Client:DecreaseByID(type, amt) end
 
+---@overload fun(slot_id: number, quantity: number): nil
 ---@param slot_id number #
 ---@param quantity number #
 ---@param update_client? boolean #
@@ -221,6 +253,7 @@ function Client:DropItem(slot_id) end
 
 function Client:Duck() end
 
+---@overload fun(slot: number, red: number, green: number, blue: number): nil
 ---@param slot number #
 ---@param red number #
 ---@param green number #
@@ -240,6 +273,7 @@ function Client:EnableAreaManaRegen(value) end
 ---@param value number #
 function Client:EnableAreaRegens(value) end
 
+---@overload fun(): nil
 ---@param send_fail? boolean #
 function Client:EndSharedTask(send_fail) end
 
@@ -269,6 +303,9 @@ function Client:FindMemmedSpellBySpellID(spell_id) end
 ---@return number
 function Client:FindSpellBookSlotBySpellID(spell_id) end
 
+---@overload fun(target_x: number, target_y: number, target_z: number): nil
+---@overload fun(target_x: number, target_y: number, target_z: number, ignore_los: boolean): nil
+---@overload fun(target_x: number, target_y: number, target_z: number, ignore_los: boolean, clip_through_walls: boolean): nil
 ---@param value number #
 ---@param target_x number #
 ---@param target_y number #
@@ -277,11 +314,14 @@ function Client:FindSpellBookSlotBySpellID(spell_id) end
 ---@param clipping? boolean #
 function Client:Fling(value, target_x, target_y, target_z, ignore_los, clipping) end
 
+---@overload fun(): nil
 ---@param guarantee? boolean #
 function Client:ForageItem(guarantee) end
 
 function Client:Freeze() end
 
+---@overload fun(): number
+---@overload fun(zone_id: number): number
 ---@param zone_id number #
 ---@param instance_version? number #
 ---@return number
@@ -352,34 +392,42 @@ function Client:GetBaseSTR() end
 ---@return number
 function Client:GetBaseWIS() end
 
+---@overload fun(): number
 ---@param index? number #
 ---@return number
 function Client:GetBindHeading(index) end
 
+---@overload fun(): number
 ---@param index? number #
 ---@return number
 function Client:GetBindX(index) end
 
+---@overload fun(): number
 ---@param index? number #
 ---@return number
 function Client:GetBindY(index) end
 
+---@overload fun(): number
 ---@param index? number #
 ---@return number
 function Client:GetBindZ(index) end
 
+---@overload fun(): number
 ---@param index? number #
 ---@return number
 function Client:GetBindZoneID(index) end
 
+---@overload fun(): number
 ---@param class_id? number #
 ---@return number
 function Client:GetBotCreationLimit(class_id) end
 
+---@overload fun(): number
 ---@param class_id? number #
 ---@return number
 function Client:GetBotRequiredLevel(class_id) end
 
+---@overload fun(): number
 ---@param class_id? number #
 ---@return number
 function Client:GetBotSpawnLimit(class_id) end
@@ -432,6 +480,8 @@ function Client:GetDuelTarget() end
 ---@return number
 function Client:GetEXP() end
 
+---@overload fun(): number
+---@overload fun(zone_id: number): number
 ---@param zone_id number #
 ---@param instance_version? number #
 ---@return number
@@ -452,6 +502,7 @@ function Client:GetEnvironmentDamageModifier() end
 ---@return Expedition
 function Client:GetExpedition() end
 
+---@overload fun(): luabind::object
 ---@param name string # expedition name
 ---@return { [string]:number } # table of expedition name : lockout seconds remaining
 function Client:GetExpeditionLockouts(name) end
@@ -541,6 +592,8 @@ function Client:GetLDoNWinsTheme(theme) end
 ---@return number
 function Client:GetLanguageSkill(skill_id) end
 
+---@overload fun(): luabind::object
+---@overload fun(min_level: number): luabind::object
 ---@param min_level? number #
 ---@param max_level? number #
 ---@return number[] # an array of spell ids
@@ -566,10 +619,12 @@ function Client:GetModCharacterFactionLevel(faction) end
 ---@return number
 function Client:GetMoney(type, subtype) end
 
+---@overload fun(): number
 ---@param starting_slot? number #
 ---@return number
 function Client:GetNextAvailableDisciplineSlot(starting_slot) end
 
+---@overload fun(): number
 ---@param start? number #
 ---@return number
 function Client:GetNextAvailableSpellBookSlot(start) end
@@ -603,6 +658,8 @@ function Client:GetRawSkill(skill_id) end
 ---@return number
 function Client:GetRecipeMadeCount(recipe_id) end
 
+---@overload fun(): luabind::object
+---@overload fun(min_level: number): luabind::object
 ---@param min_level number #
 ---@param max_level number #
 ---@return number[] # an array of spell ids
@@ -650,6 +707,7 @@ function GetZoneFlags() end
 
 function Client:GoFish() end
 
+---@overload fun(aa_id: number, points: number): boolean
 ---@param aa_id number # What AA ID to give
 ---@param points number # How many points to grant
 ---@param ignore_cost? boolean # Ignore the cost of the AA when granting it?
@@ -709,10 +767,12 @@ function Client:InZone() end
 ---@param value number #
 function Client:IncStats(type, value) end
 
+---@overload fun(language_id: number): nil
 ---@param skill_id number #
 ---@param value? number #
 function Client:IncreaseLanguageSkill(skill_id, value) end
 
+---@overload fun(skill_id: number): nil
 ---@param skill_id number #
 ---@param value? number #
 function Client:IncreaseSkill(skill_id, value) end
@@ -786,6 +846,7 @@ function Client:LoadZoneFlags() end
 ---@param lock boolean #
 function Client:LockSharedTask(lock) end
 
+---@overload fun(in_x: number, in_y: number, in_z: number): nil
 ---@param in_x number #
 ---@param in_y number #
 ---@param in_z number #
@@ -806,6 +867,7 @@ function Client:Marquee(type, priority, fade_in, fade_out, duration, message) en
 ---@return number
 function Client:MaxSkill(skill_id) end
 
+---@overload fun(spell_id: number, slot: number): nil
 ---@param spell_id number #
 ---@param slot number #
 ---@param update_client? boolean #
@@ -821,10 +883,11 @@ function Client:MemmedCount() end
 ---@param heading number #
 function Client:MovePC(zone, x, y, z, heading) end
 
+---@overload fun(zone_id: number): nil
+---@overload fun(zone_id: number, zone_version: number): nil
 ---@param zone_id number #
 ---@param zone_version? number #
 ---@param msg_if_invalid? boolean #
----@overload fun(zone_name:string, zone_version?:number, msg_if_invalid?:boolean)
 function Client:MovePCDynamicZone(zone_id, zone_version, msg_if_invalid) end
 
 ---@param zone number #
@@ -835,6 +898,8 @@ function Client:MovePCDynamicZone(zone_id, zone_version, msg_if_invalid) end
 ---@param heading number #
 function Client:MovePCInstance(zone, instance, x, y, z, heading) end
 
+---@overload fun(zone_short_name: string): nil
+---@overload fun(zone_short_name: string, x: number, y: number, z: number): nil
 ---@param zone_short_name string #
 ---@param x? number #
 ---@param y? number #
@@ -842,6 +907,8 @@ function Client:MovePCInstance(zone, instance, x, y, z, heading) end
 ---@param heading? number #
 function Client:MoveZone(zone_short_name, x, y, z, heading) end
 
+---@overload fun(zone_short_name: string): nil
+---@overload fun(zone_short_name: string, x: number, y: number, z: number): nil
 ---@param zone_short_name string #
 ---@param x? number #
 ---@param y? number #
@@ -849,6 +916,8 @@ function Client:MoveZone(zone_short_name, x, y, z, heading) end
 ---@param heading? number #
 function Client:MoveZoneGroup(zone_short_name, x, y, z, heading) end
 
+---@overload fun(instance_id: number): nil
+---@overload fun(instance_id: number, x: number, y: number, z: number): nil
 ---@param instance_id number #
 ---@param x? number #
 ---@param y? number #
@@ -856,6 +925,8 @@ function Client:MoveZoneGroup(zone_short_name, x, y, z, heading) end
 ---@param heading? number #
 function Client:MoveZoneInstance(instance_id, x, y, z, heading) end
 
+---@overload fun(instance_id: number): nil
+---@overload fun(instance_id: number, x: number, y: number, z: number): nil
 ---@param instance_id number #
 ---@param x? number #
 ---@param y? number #
@@ -876,8 +947,14 @@ function Client:MoveZoneInstanceRaid(instance_id, x, y, z, heading) end
 ---@param z number #
 function Client:MoveZoneInstanceRaid(instance_id, x, y, z) end
 
+---@overload fun(instance_id: number): nil
+---@overload fun(instance_id: number, x: number, y: number, z: number): nil
 ---@param instance_id number #
-function Client:MoveZoneInstanceRaid(instance_id) end
+---@param x? number
+---@param y? number
+---@param z? number
+---@param heading? number
+function Client:MoveZoneInstanceRaid(instance_id, x, y, z, heading) end
 
 ---@param zone_short_name string #
 function Client:MoveZoneRaid(zone_short_name) end
@@ -888,6 +965,8 @@ function Client:MoveZoneRaid(zone_short_name) end
 ---@param z number #
 function Client:MoveZoneRaid(zone_short_name, x, y, z) end
 
+---@overload fun(zone_short_name: string): nil
+---@overload fun(zone_short_name: string, x: number, y: number, z: number): nil
 ---@param zone_short_name string #
 ---@param x number #
 ---@param y number #
@@ -897,6 +976,7 @@ function Client:MoveZoneRaid(zone_short_name, x, y, z, heading) end
 
 function Client:NotifyNewTitlesAvailable() end
 
+---@overload fun(item_num: number): nil
 ---@param item_num number #
 ---@param where_to_check? number #
 function Client:NukeItem(item_num, where_to_check) end
@@ -906,6 +986,12 @@ function Client:OpenLFGuildWindow() end
 ---@param file string #
 function Client:PlayMP3(file) end
 
+---@overload fun(title: string, text: string): nil
+---@overload fun(title: string, text: string, popup_id: number): nil
+---@overload fun(title: string, text: string, popup_id: number, negative_id: number): nil
+---@overload fun(title: string, text: string, popup_id: number, negative_id: number, button_type: number): nil
+---@overload fun(title: string, text: string, popup_id: number, negative_id: number, button_type: number, duration: number): nil
+---@overload fun(title: string, text: string, popup_id: number, negative_id: number, button_type: number, duration: number, button_name_one: string, button_name_two: string): nil
 ---@param title string #
 ---@param text string #
 ---@param popup_id? number #
@@ -930,6 +1016,13 @@ function Client:PutItemInInventory(slot_id, inst) end
 ---@param type number #
 function Client:QuestReadBook(text, type) end
 
+---@overload fun(target: Mob): nil
+---@overload fun(target: Mob, copper: number): nil
+---@overload fun(target: Mob, copper: number, silver: number): nil
+---@overload fun(target: Mob, copper: number, silver: number, gold: number): nil
+---@overload fun(target: Mob, copper: number, silver: number, gold: number, platinum: number): nil
+---@overload fun(target: Mob, copper: number, silver: number, gold: number, platinum: number, itemid: number): nil
+---@overload fun(target: Mob, copper: number, silver: number, gold: number, platinum: number, itemid: number, exp: number): nil
 ---@param target Mob #
 ---@param copper? number #
 ---@param silver? number #
@@ -940,6 +1033,9 @@ function Client:QuestReadBook(text, type) end
 ---@param faction? boolean #
 function Client:QuestReward(target, copper, silver, gold, platinum, itemid, exp, faction) end
 
+---@overload fun(app: Packet): nil
+---@overload fun(app: Packet, ack_req: boolean): nil
+---@overload fun(app: Packet, ack_req: boolean, client_connection_status: number): nil
 ---@param app PacketType #
 ---@param ack_req? boolean #
 ---@param client_connection_status? number #
@@ -952,6 +1048,7 @@ function Client:ReadBookByName(book_name, book_type) end
 
 function Client:RefundAA() end
 
+---@overload fun(): nil
 ---@param expedition_name? string #
 function Client:RemoveAllExpeditionLockouts(expedition_name) end
 
@@ -959,6 +1056,7 @@ function Client:RemoveAllExpeditionLockouts(expedition_name) end
 ---@param event_name string #
 function Client:RemoveExpeditionLockout(expedition_name, event_name) end
 
+---@overload fun(item_id: number): nil
 ---@param item_id number #
 ---@param quantity? number #
 function Client:RemoveItem(item_id, quantity) end
@@ -993,9 +1091,11 @@ function Client:ResetTrade() end
 ---@param amount number #
 function Client:RewardFaction(id, amount) end
 
+---@overload fun(): nil
 ---@param commit_now? number #
 function Client:Save(commit_now) end
 
+---@overload fun(spell_id: number, slot: number): nil
 ---@param spell_id number #
 ---@param slot number #
 ---@param update_client? boolean #
@@ -1014,6 +1114,7 @@ function Client:SendColoredText(type, msg) end
 ---@param item_instance ItemInst #
 function Client:SendItemScale(item_instance) end
 
+---@overload fun(message: string): boolean
 ---@param message string #
 ---@param ignore_status? number #
 function Client:SendGMCommand(message, ignore_status) end
@@ -1056,6 +1157,7 @@ function Client:SendToGuildHall() end
 ---@param duration number #
 function Client:SendToInstance(instance_type, zone_short_name, instance_version, x, y, z, heading, instance_identifier, duration) end
 
+---@overload fun(payload_id: number): nil
 ---@param payload_id number #
 ---@param payload_value? string #
 function Client:SendPayload(payload_id, payload_value) end
@@ -1066,6 +1168,8 @@ function Client:SendWebLink(site) end
 ---@param to Client #
 function Client:SendZoneFlagInfo(to) end
 
+---@overload fun(aa_modifier: number): nil
+---@overload fun(zone_id: number, aa_modifier: number): nil
 ---@param zone_id number #
 ---@param aa_modifier number #
 ---@param instance_version? number #
@@ -1074,6 +1178,7 @@ function Client:SetAAEXPModifier(zone_id, aa_modifier, instance_version) end
 ---@param points number #
 function Client:SetAAPoints(points) end
 
+---@overload fun(title: string): nil
 ---@param title string #
 ---@param save_to_database? boolean #
 function Client:SetAATitle(title, save_to_database) end
@@ -1101,6 +1206,12 @@ function Client:SetBaseGender(v) end
 ---@param v number #
 function Client:SetBaseRace(v) end
 
+---@overload fun(): nil
+---@overload fun(to_zone: number): nil
+---@overload fun(to_zone: number, to_instance: number): nil
+---@overload fun(to_zone: number, to_instance: number, new_x: number): nil
+---@overload fun(to_zone: number, to_instance: number, new_x: number, new_y: number): nil
+---@overload fun(to_zone: number, to_instance: number, new_x: number, new_y: number, new_z: number): nil
 ---@param to_zone number #
 ---@param to_instance? number #
 ---@param new_x? number #
@@ -1109,14 +1220,17 @@ function Client:SetBaseRace(v) end
 ---@param new_heading? number #
 function Client:SetBindPoint(to_zone, to_instance, new_x, new_y, new_z, new_heading) end
 
+---@overload fun(new_creation_limit: number): nil
 ---@param new_creation_limit number #
 ---@param class_id? number #
 function Client:SetBotCreationLimit(new_creation_limit, class_id) end
 
+---@overload fun(new_required_level: number): nil
 ---@param new_required_level number #
 ---@param class_id? number #
 function Client:SetBotRequiredLevel(new_required_level, class_id) end
 
+---@overload fun(new_spawn_limit: number): nil
 ---@param new_spawn_limit number #
 ---@param class_id? number #
 function Client:SetBotSpawnLimit(new_spawn_limit, class_id) end
@@ -1137,6 +1251,7 @@ function Client:SetDuelTarget(c) end
 ---@param v boolean #
 function Client:SetDueling(v) end
 
+---@overload fun(set_exp: number, set_aaxp: number): nil
 ---@param set_exp number #
 ---@param set_aaxp number #
 ---@param resexp? boolean #
@@ -1145,6 +1260,8 @@ function Client:SetEXP(set_exp, set_aaxp, resexp) end
 ---@param is_exp_enabled boolean #
 function Client:SetEXPEnabled(is_exp_enabled) end
 
+---@overload fun(exp_modifier: number): nil
+---@overload fun(zone_id: number, exp_modifier: number): nil
 ---@param zone_id number #
 ---@param exp_modifier number #
 ---@param instance_version? number #
@@ -1229,25 +1346,44 @@ function Client:SetSkill(skill_id, value) end
 ---@param skill number #
 function Client:SetSkillPoints(skill) end
 
+---@overload fun(spell_id: number): nil
+---@overload fun(spell_id: number, duration: number): nil
+---@overload fun(spell_id: number, duration: number, level: number): nil
+---@overload fun(spell_id: number, duration: number, level: number, allow_pets: boolean): nil
 ---@param spell_id number #
 ---@param duration? number #
+---@param level? number
 ---@param allow_pets? boolean #
 ---@param allow_bots? boolean #
-function Client:SetSpellDuration(spell_id, duration, allow_pets, allow_bots) end
+function Client:SetSpellDuration(spell_id, duration, level, allow_pets, allow_bots) end
 
+---@overload fun(spell_id: number): nil
+---@overload fun(spell_id: number, duration: number): nil
+---@overload fun(spell_id: number, duration: number, level: number): nil
+---@overload fun(spell_id: number, duration: number, level: number, allow_pets: boolean): nil
 ---@param spell_id number #
 ---@param duration? number #
+---@param level? number
 ---@param allow_pets? boolean #
 ---@param allow_bots? boolean #
-function Client:SetSpellDurationGroup(spell_id, duration, allow_pets, allow_bots) end
+function Client:SetSpellDurationGroup(spell_id, duration, level, allow_pets, allow_bots) end
 
+---@overload fun(spell_id: number): nil
+---@overload fun(spell_id: number, duration: number): nil
+---@overload fun(spell_id: number, duration: number, level: number): nil
+---@overload fun(spell_id: number, duration: number, level: number, allow_pets: boolean): nil
+---@overload fun(spell_id: number, duration: number, level: number, allow_pets: boolean, is_raid_group_only: boolean): nil
 ---@param spell_id number #
 ---@param duration? number #
+---@param level? number
 ---@param allow_pets? boolean #
 ---@param is_raid_group_only? boolean #
 ---@param allow_bots? boolean #
-function Client:SetSpellDurationRaid(spell_id, duration, allow_pets, is_raid_group_only, allow_bots) end
+function Client:SetSpellDurationRaid(spell_id, duration, level, allow_pets, is_raid_group_only, allow_bots) end
 
+---@overload fun(zone_id: number): nil
+---@overload fun(zone_id: number, x: number): nil
+---@overload fun(zone_id: number, x: number, y: number): nil
 ---@param zone_id number #
 ---@param x? number #
 ---@param y? number #
@@ -1293,6 +1429,14 @@ function Client:Stand() end
 ---@param bag_items_table BagItemTable #
 function Client:SummonBaggedItems(bag_item_id, bag_items_table) end
 
+---@overload fun(item_id: number): nil
+---@overload fun(item_id: number, charges: number): nil
+---@overload fun(item_id: number, charges: number, aug1: number): nil
+---@overload fun(item_id: number, charges: number, aug1: number, aug2: number): nil
+---@overload fun(item_id: number, charges: number, aug1: number, aug2: number, aug3: number): nil
+---@overload fun(item_id: number, charges: number, aug1: number, aug2: number, aug3: number, aug4: number): nil
+---@overload fun(item_id: number, charges: number, aug1: number, aug2: number, aug3: number, aug4: number, aug5: number): nil
+---@overload fun(item_id: number, charges: number, aug1: number, aug2: number, aug3: number, aug4: number, aug5: number, attuned: boolean): nil
 ---@param item_id number #
 ---@param charges? number #
 ---@param aug1? number #
@@ -1307,16 +1451,19 @@ function Client:SummonItem(item_id, charges, aug1, aug2, aug3, aug4, aug5, attun
 ---@return boolean
 function Client:TGB() end
 
+---@overload fun(copper: number): boolean
 ---@param copper number #
 ---@param update_client? boolean # Update client on the event
 ---@return boolean
 function Client:TakeMoneyFromPP(copper, update_client) end
 
+---@overload fun(platinum: number): boolean
 ---@param platinum number #
 ---@param update_client? boolean # Update client on the event
 ---@return boolean
 function Client:TakePlatinum(platinum, update_client) end
 
+---@overload fun(table: table): nil
 ---@param task_array number[] # an array of task_ids
 ---@param ignore_cooldown? boolean #
 function Client:TaskSelector(task_array, ignore_cooldown) end
@@ -1358,38 +1505,47 @@ function Client:UnFreeze() end
 
 function Client:Undye() end
 
+---@overload fun(slot: number): nil
 ---@param slot number #
 ---@param update_client? boolean #
 function Client:UnmemSpell(slot, update_client) end
 
+---@overload fun(): nil
 ---@param update_client? boolean #
 function Client:UnmemSpellAll(update_client) end
 
 ---@param spell_id number #
 function Client:UnmemSpellBySpellID(spell_id) end
 
+---@overload fun(slot: number): nil
 ---@param slot number #
 ---@param update_client? boolean #
 function Client:UnscribeSpell(slot, update_client) end
 
+---@overload fun(): nil
 ---@param update_client? boolean #
 function Client:UnscribeSpellAll(update_client) end
 
+---@overload fun(spell_id: number): nil
 ---@param spell_id number #
 ---@param update_client? boolean #
 function Client:UnscribeSpellBySpellID(spell_id, update_client) end
 
+---@overload fun(slot: number): nil
 ---@param slot number #
 ---@param update_client? boolean #
 function Client:UntrainDisc(slot, update_client) end
 
+---@overload fun(): nil
 ---@param update_client? boolean #
 function Client:UntrainDiscAll(update_client) end
 
+---@overload fun(spell_id: number): nil
 ---@param spell_id number #
 ---@param update_client? boolean #
 function Client:UntrainDiscBySpellID(spell_id, update_client) end
 
+---@overload fun(): nil
 ---@param from_database? boolean #
 function Client:UpdateAdmin(from_database) end
 
@@ -1423,6 +1579,8 @@ function Client:AddRadiantCrystals(amount) end
 ---@return boolean
 function Client:AreTasksCompleted(task_ids) end
 
+---@overload fun(): nil
+---@overload fun(range: number): nil
 ---@param range? number # Range
 ---@param bonus_hate? number # Bonus hate
 function Client:AreaTaunt(range, bonus_hate) end
@@ -1553,6 +1711,7 @@ function Client:GetPotionBeltItemName(slot_id) end
 ---@return string
 function Client:GetRaceAbbreviation() end
 
+---@overload fun(): luabind::object
 ---@param clients_only? boolean # Clients only
 ---@return table
 function Client:GetRaidOrGroupOrSelf(clients_only) end
@@ -1567,6 +1726,8 @@ function Client:GetSkillTrainLevel(skill_id) end
 ---@return table
 function Client:GetZoneFlags() end
 
+---@overload fun(): nil
+---@overload fun(unlock_level: number): nil
 ---@param unlock_level? number # Unlock level
 ---@param skip_grant_only? boolean # Skip grant only
 function Client:GrantAllAAPoints(unlock_level, skip_grant_only) end
@@ -1597,6 +1758,7 @@ function Client:IsNameChangeAllowed() end
 ---@return boolean
 function Client:KeyRingClear() end
 
+---@overload fun(): nil
 ---@param c? Client # C
 function Client:KeyRingList(c) end
 
@@ -1632,15 +1794,18 @@ function Client:ResetLeadershipAA() end
 ---@param percentage number # Percentage
 function Client:SetAAEXPPercentage(percentage) end
 
+---@overload fun(bucket_name: string, bucket_value: string): nil
 ---@param bucket_name string # Data bucket name
 ---@param bucket_value string # Data bucket value
 ---@param expiration? string # Expiration
 function Client:SetAccountBucket(bucket_name, bucket_value, expiration) end
 
+---@overload fun(): boolean
 ---@param character_name? string # Character name
 ---@return boolean
 function Client:SetAutoLoginCharacterName(character_name) end
 
+---@overload fun(bucket_name: string, bucket_value: string): nil
 ---@param bucket_name string # Data bucket name
 ---@param bucket_value string # Data bucket value
 ---@param expiration? string # Expiration

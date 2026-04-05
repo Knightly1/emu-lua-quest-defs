@@ -45,6 +45,7 @@ function Spawn:LoadGrid() end
 
 function Spawn:NPCPointerValid() end
 
+---@overload fun(): nil
 ---@param delay? number # TODO: definition of parameter
 function Spawn:Repop(delay) end
 

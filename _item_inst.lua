@@ -49,6 +49,7 @@ function ItemInst:GetID() end
 ---@return Item
 function ItemInst:GetItem(slot) end
 
+---@overload fun(slot_id: number): ItemInst
 ---@return Item
 function ItemInst:GetItem() end
 
@@ -65,8 +66,8 @@ function ItemInst:GetTaskDeliveredCount() end
 
 function ItemInst:GetTotalItemCount() end
 
----@param slot number # TODO: definition of parameter
-function ItemInst:GetUnscaledItem(slot) end
+---@return Item
+function ItemInst:GetUnscaledItem() end
 
 function ItemInst:IsAmmo() end
 
@@ -77,6 +78,7 @@ function ItemInst:IsAugmented() end
 ---@param slot_id number # TODO: definition of parameter
 function ItemInst:IsEquipable(slot_id) end
 
+---@overload fun(slot_id: number): boolean
 ---@param race number # TODO: definition of parameter
 ---@param class_ number # TODO: definition of parameter
 function ItemInst:IsEquipable(race, class_) end
@@ -193,6 +195,7 @@ function ItemInst:IsAttuned() end
 ---@return boolean
 function ItemInst:IsEvolving() end
 
+---@overload fun(text: string): nil
 ---@param text string # Text
 ---@param language_id? number # Language id
 function ItemInst:ItemSay(text, language_id) end

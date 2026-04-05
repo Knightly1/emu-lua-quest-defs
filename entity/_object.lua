@@ -10,6 +10,7 @@ function Object:ClearUser() end
 
 function Object:Close() end
 
+---@overload fun(): nil
 ---@param reset_state? boolean # TODO: definition of parameter
 function Object:Delete(reset_state) end
 

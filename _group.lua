@@ -17,9 +17,11 @@ function Group:DisbandGroup() end
 ---@param max_check_count number # TODO: definition of parameter
 function Group:DoesAnyMemberHaveExpeditionLockout(expedition_name, event_name, max_check_count) end
 
+---@overload fun(expedition_name: string, event_name: string): boolean
 ---@param expedition_name string # TODO: definition of parameter
 ---@param event_name string # TODO: definition of parameter
-function Group:DoesAnyMemberHaveExpeditionLockout(expedition_name, event_name) end
+---@param max_check_count? number
+function Group:DoesAnyMemberHaveExpeditionLockout(expedition_name, event_name, max_check_count) end
 
 function Group:GetAverageLevel() end
 
@@ -47,9 +49,11 @@ function Group:GroupCount() end
 ---@param message string # TODO: definition of parameter
 function Group:GroupMessage(sender, language, message) end
 
+---@overload fun(sender: Mob, message: string): nil
 ---@param sender Mob # TODO: definition of parameter
----@param message string # TODO: definition of parameter
-function Group:GroupMessage(sender, message) end
+---@param language_id number
+---@param message? string # TODO: definition of parameter
+function Group:GroupMessage(sender, language_id, message) end
 
 ---@param mob Mob # TODO: definition of parameter
 function Group:IsGroupMember(mob) end
@@ -71,11 +75,13 @@ function Group:SplitExp(exp, other) end
 ---@param splitter Client # TODO: definition of parameter
 function Group:SplitMoney(copper, silver, gold, platinum, splitter) end
 
+---@overload fun(copper: number, silver: number, gold: number, platinum: number): nil
 ---@param copper number # TODO: definition of parameter
 ---@param silver number # TODO: definition of parameter
 ---@param gold number # TODO: definition of parameter
 ---@param platinum number # TODO: definition of parameter
-function Group:SplitMoney(copper, silver, gold, platinum) end
+---@param splitter? Client
+function Group:SplitMoney(copper, silver, gold, platinum, splitter) end
 
 ---@param sender Mob # TODO: definition of parameter
 ---@param zone_id number # TODO: definition of parameter

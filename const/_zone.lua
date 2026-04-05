@@ -514,6 +514,7 @@ function Zones:DeleteBucket(bucket_name) end
 ---@return boolean
 function Zones:DeleteVariable(variable_name) end
 
+---@overload fun(): nil
 ---@param start_spawn_timers? boolean # Start spawn timers
 function Zones:Depop(start_spawn_timers) end
 
@@ -577,6 +578,7 @@ function Zones:GetFileName() end
 ---@return string
 function Zones:GetFlagNeeded() end
 
+---@overload fun(): number
 ---@param slot? number # Slot number
 ---@return number
 function Zones:GetFogBlue(slot) end
@@ -584,18 +586,22 @@ function Zones:GetFogBlue(slot) end
 ---@return number
 function Zones:GetFogDensity() end
 
+---@overload fun(): number
 ---@param slot? number # Slot number
 ---@return number
 function Zones:GetFogGreen(slot) end
 
+---@overload fun(): number
 ---@param slot? number # Slot number
 ---@return number
 function Zones:GetFogMaximumClip(slot) end
 
+---@overload fun(): number
 ---@param slot? number # Slot number
 ---@return number
 function Zones:GetFogMinimumClip(slot) end
 
+---@overload fun(): number
 ---@param slot? number # Slot number
 ---@return number
 function Zones:GetFogRed(slot) end
@@ -678,10 +684,12 @@ function Zones:GetPEQZone() end
 ---@return table
 function Zones:GetPausedTimers() end
 
+---@overload fun(): number
 ---@param slot? number # Slot number
 ---@return number
 function Zones:GetRainChance(slot) end
 
+---@overload fun(): number
 ---@param slot? number # Slot number
 ---@return number
 function Zones:GetRainDuration(slot) end
@@ -716,10 +724,12 @@ function Zones:GetSky() end
 ---@return number
 function Zones:GetSkyLock() end
 
+---@overload fun(): number
 ---@param slot? number # Slot number
 ---@return number
 function Zones:GetSnowChance(slot) end
 
+---@overload fun(): number
 ---@param slot? number # Slot number
 ---@return number
 function Zones:GetSnowDuration(slot) end
@@ -840,6 +850,7 @@ function Zones:IsWaterZone(z) end
 ---@param name string # Name
 function Zones:PauseTimer(name) end
 
+---@overload fun(): nil
 ---@param is_forced? boolean # Is forced
 function Zones:Repop(is_forced) end
 
@@ -858,6 +869,7 @@ function Zones:SetAAEXPModifier(c, aa_modifier) end
 ---@param aa_modifier number # Aa modifier
 function Zones:SetAAEXPModifierByCharacterID(character_id, aa_modifier) end
 
+---@overload fun(bucket_name: const std::string&, bucket_value: const std::string&): nil
 ---@param bucket_name string # Data bucket name
 ---@param bucket_value string # Data bucket value
 ---@param expiration? string # Expiration

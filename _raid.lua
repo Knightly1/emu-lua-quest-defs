@@ -15,6 +15,7 @@ function Raid:BalanceHP(penalty, group_id) end
 ---@param group_id number # TODO: definition of parameter
 function Raid:CastGroupSpell(caster, spell_id, group_id) end
 
+---@overload fun(expedition_name: string, event_name: string): boolean
 ---@param expedition_name string # TODO: definition of parameter
 ---@param event_name string # TODO: definition of parameter
 ---@param max_check_count? number # TODO: definition of parameter
@@ -59,6 +60,7 @@ function Raid:RaidCount() end
 ---@param other Mob # TODO: definition of parameter
 function Raid:SplitExp(exp, other) end
 
+---@overload fun(gid: number, copper: number, silver: number, gold: number, platinum: number): nil
 ---@param gid number # TODO: definition of parameter
 ---@param copper number # TODO: definition of parameter
 ---@param silver number # TODO: definition of parameter

@@ -156,35 +156,43 @@ function Packet:SetRawOpcode(op) end
 ---@param offset number # Offset
 function Packet:SetWritePosition(offset) end
 
+---@overload fun(value: number): nil
 ---@param offset number # Offset
 ---@param value? number # Value
 function Packet:WriteDouble(offset, value) end
 
+---@overload fun(value: string): nil
 ---@param offset number # Offset
 ---@param value? string # Value
 ---@param string_length? number # String length
 function Packet:WriteFixedLengthString(offset, value, string_length) end
 
+---@overload fun(value: number): nil
 ---@param offset number # Offset
 ---@param value? number # Value
 function Packet:WriteFloat(offset, value) end
 
+---@overload fun(value: number): nil
 ---@param offset number # Offset
 ---@param value? number # Value
 function Packet:WriteInt16(offset, value) end
 
+---@overload fun(value: number): nil
 ---@param offset number # Offset
 ---@param value? number # Value
 function Packet:WriteInt32(offset, value) end
 
+---@overload fun(value: number): nil
 ---@param offset number # Offset
 ---@param value? number # Value
 function Packet:WriteInt64(offset, value) end
 
+---@overload fun(value: number): nil
 ---@param offset number # Offset
 ---@param value? number # Value
 function Packet:WriteInt8(offset, value) end
 
+---@overload fun(value: string): nil
 ---@param offset number # Offset
 ---@param value? string # Value
 function Packet:WriteString(offset, value) end

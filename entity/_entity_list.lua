@@ -65,11 +65,13 @@ function GetBotOwnerByBotEntityID(entity_id) end
 ---@return Client
 function GetBotOwnerByBotID(bot_id) end
 
+---@overload fun(character_id: number): BotList
 ---@param character_id number # TODO: definition of parameter
 ---@param class_id? number # TODO: definition of parameter
 ---@return BotList
 function EntityList:GetBotListByCharacterID(character_id, class_id) end
 
+---@overload fun(client_name: string): BotList
 ---@param client_name string # TODO: definition of parameter
 ---@param class_id? number # TODO: definition of parameter
 ---@return BotList
@@ -202,6 +204,8 @@ function EntityList:GetRaidByClient(client) end
 function EntityList:GetRaidByID(id) end
 
 --- Returns a random bot that matches the location requirements
+---@overload fun(): Bot
+---@overload fun(x: number, y: number, z: number, distance: number): Bot
 ---@param x? number # TODO: definition of parameter
 ---@param y? number # TODO: definition of parameter
 ---@param z? number # TODO: definition of parameter
@@ -211,6 +215,8 @@ function EntityList:GetRaidByID(id) end
 function EntityList:GetRandomBot(x, y, z, distance, exclude_bot) end
 
 --- Returns a random client that matches the location requirements
+---@overload fun(): Client
+---@overload fun(x: number, y: number, z: number, distance: number): Client
 ---@param x? number # TODO: definition of parameter
 ---@param y? number # TODO: definition of parameter
 ---@param z? number # TODO: definition of parameter
@@ -220,6 +226,8 @@ function EntityList:GetRandomBot(x, y, z, distance, exclude_bot) end
 function EntityList:GetRandomClient(x, y, z, distance, exclude_client) end
 
 --- Returns a random mob that matches the location requirements
+---@overload fun(): Mob
+---@overload fun(x: number, y: number, z: number, distance: number): Mob
 ---@param x? number # TODO: definition of parameter
 ---@param y? number # TODO: definition of parameter
 ---@param z? number # TODO: definition of parameter
@@ -229,6 +237,8 @@ function EntityList:GetRandomClient(x, y, z, distance, exclude_client) end
 function EntityList:GetRandomMob(x, y, z, distance, exclude_mob) end
 
 --- Returns a random NPC that matches the location requirements
+---@overload fun(): NPC
+---@overload fun(x: number, y: number, z: number, distance: number): NPC
 ---@param x? number # TODO: definition of parameter
 ---@param y? number # TODO: definition of parameter
 ---@param z? number # TODO: definition of parameter
@@ -264,13 +274,14 @@ function EntityList:IsMobSpawnedByNpcTypeID(npc_type) end
 ---@return string
 function EntityList:MakeNameUnique(name) end
 
+---@overload fun(type: number, message: string): nil
+---@overload fun(type: number, message: string, duration: number): nil
 ---@param type number # TODO: definition of parameter
 ---@param priority number # TODO: definition of parameter
 ---@param fade_in number # TODO: definition of parameter
 ---@param fade_out number # TODO: definition of parameter
 ---@param duration number # TODO: definition of parameter
 ---@param message string # TODO: definition of parameter
----@overload fun(type:number, message:string, duration?:number)
 function EntityList:Marquee(type, priority, fade_in, fade_out, duration, message) end
 
 ---@param guild_dbid number # TODO: definition of parameter
@@ -303,6 +314,7 @@ function EntityList:OpenDoorsNear(opener) end
 ---@param who Mob # TODO: definition of parameter
 function EntityList:RemoveFromHateLists(who) end
 
+---@overload fun(who: Mob): nil
 ---@param who Mob # TODO: definition of parameter
 ---@param set_to_one boolean # TODO: definition of parameter
 function EntityList:RemoveFromHateLists(who, set_to_one) end
@@ -310,6 +322,7 @@ function EntityList:RemoveFromHateLists(who, set_to_one) end
 ---@param mob Mob # TODO: definition of parameter
 function EntityList:RemoveFromTargets(mob) end
 
+---@overload fun(mob: Mob): nil
 ---@param mob Mob # TODO: definition of parameter
 ---@param RemoveFromXTargets boolean # TODO: definition of parameter
 function EntityList:RemoveFromTargets(mob, RemoveFromXTargets) end
@@ -341,6 +354,10 @@ function EntityList:SignalBotByBotName(bot_name, signal_id) end
 ---@param signal number # TODO: definition of parameter
 function EntityList:SignalMobsByNPCID(npc_id, signal) end
 
+---@overload fun(attacker: Mob, distance: number): nil
+---@overload fun(attacker: Mob, distance: number, slot_id: number): nil
+---@overload fun(attacker: Mob, distance: number, slot_id: number, count: number): nil
+---@overload fun(attacker: Mob, distance: number, slot_id: number, count: number, is_from_spell: boolean): nil
 ---@param attacker Mob # Attacker
 ---@param distance number # Distance
 ---@param slot_id? number # Slot ID
@@ -349,6 +366,9 @@ function EntityList:SignalMobsByNPCID(npc_id, signal) end
 ---@param attack_rounds? number # Attack rounds
 function EntityList:AreaAttack(attacker, distance, slot_id, count, is_from_spell, attack_rounds) end
 
+---@overload fun(caster: Mob, center: Mob, spell_id: number): nil
+---@overload fun(caster: Mob, center: Mob, spell_id: number, affect_caster: boolean): nil
+---@overload fun(caster: Mob, center: Mob, spell_id: number, affect_caster: boolean, resist_adjust: number): nil
 ---@param caster Mob # Caster
 ---@param center Mob # Center
 ---@param spell_id number # Spell ID
@@ -357,6 +377,8 @@ function EntityList:AreaAttack(attacker, distance, slot_id, count, is_from_spell
 ---@param max_targets? number # Max targets
 function EntityList:AreaSpell(caster, center, spell_id, affect_caster, resist_adjust, max_targets) end
 
+---@overload fun(caster: Client): nil
+---@overload fun(caster: Client, range: number): nil
 ---@param caster Client # Caster
 ---@param range? number # Range
 ---@param bonus_hate? number # Bonus hate
@@ -370,11 +392,11 @@ function EntityList:GetBotOwnerByBotEntityID(entity_id) end
 ---@return Client
 function EntityList:GetBotOwnerByBotID(bot_id) end
 
+---@overload fun(mob: Mob): MobList
 ---@param mob Mob # Target mob
 ---@param distance? number # Distance
----@param ignore_self? boolean # Ignore self
 ---@return MobList
-function EntityList:GetCloseMobList(mob, distance, ignore_self) end
+function EntityList:GetCloseMobList(mob, distance) end
 
 ---@param npc_ids table # Npc ids
 ---@return NPCList
@@ -384,6 +406,7 @@ function EntityList:GetNPCsByExcludedIDs(npc_ids) end
 ---@return NPCList
 function EntityList:GetNPCsByIDs(npc_ids) end
 
+---@overload fun(caster: Mob, center: Mob, spell_id: number): nil
 ---@param caster Mob # Caster
 ---@param center Mob # Center
 ---@param spell_id number # Spell ID

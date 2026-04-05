@@ -68,6 +68,7 @@ function Merc:IsSitting() end
 ---@return boolean
 function Merc:IsStanding() end
 
+---@overload fun(scale_percentage: number): nil
 ---@param scale_percentage number # Scale percentage
 ---@param set_to_max? boolean # Set to max
 function Merc:ScaleStats(scale_percentage, set_to_max) end

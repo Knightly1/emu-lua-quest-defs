@@ -4,6 +4,7 @@
 ---@class NPC : Mob
 NPC = {}
 
+---@overload fun(dist: number, max_x: number, min_x: number, max_y: number, min_y: number): nil
 ---@param dist number # TODO: definition of parameter
 ---@param max_x number # TODO: definition of parameter
 ---@param min_x number # TODO: definition of parameter
@@ -13,6 +14,7 @@ NPC = {}
 ---@param mindelay? number # TODO: definition of parameter
 function NPC:AI_SetRoambox(dist, max_x, min_x, max_y, min_y, delay, mindelay) end
 
+---@overload fun(priority: number, spell_id: number, type: number, mana_cost: number, recast_delay: number, resist_adjust: number): nil
 ---@param priority number # TODO: definition of parameter
 ---@param spell_id number # TODO: definition of parameter
 ---@param type number # TODO: definition of parameter
@@ -36,6 +38,13 @@ function NPC:AddAISpellEffect(spell_effect_id, base_value, limit_value, max_valu
 ---@param platinum number # amount of platinum to set on NPC
 function NPC:AddCash(copper, silver, gold, platinum) end
 
+---@overload fun(item_id: number, charges: number): nil
+---@overload fun(item_id: number, charges: number, equip: boolean): nil
+---@overload fun(item_id: number, charges: number, equip: boolean, aug1: number): nil
+---@overload fun(item_id: number, charges: number, equip: boolean, aug1: number, aug2: number): nil
+---@overload fun(item_id: number, charges: number, equip: boolean, aug1: number, aug2: number, aug3: number): nil
+---@overload fun(item_id: number, charges: number, equip: boolean, aug1: number, aug2: number, aug3: number, aug4: number): nil
+---@overload fun(item_id: number, charges: number, equip: boolean, aug1: number, aug2: number, aug3: number, aug4: number, aug5: number): nil
 ---@param item_id number # TODO: definition of parameter
 ---@param charges number # TODO: definition of parameter
 ---@param equip? boolean # TODO: definition of parameter
@@ -47,6 +56,7 @@ function NPC:AddCash(copper, silver, gold, platinum) end
 ---@param aug6? number # TODO: definition of parameter
 function NPC:AddItem(item_id, charges, equip, aug1, aug2, aug3, aug4, aug5, aug6) end
 
+---@overload fun(): nil
 ---@param id? number # TODO: definition of parameter
 function NPC:AddLootTable(id) end
 
@@ -235,6 +245,8 @@ function NPC:RemoveAISpellEffect(spell_effect_id) end
 
 function NPC:RemoveCash() end
 
+---@overload fun(item_id: number): nil
+---@overload fun(item_id: number, quantity: number): nil
 ---@param item_id number # TODO: definition of parameter
 ---@param quantity? number # TODO: definition of parameter
 ---@param slot? number # TODO: definition of parameter
@@ -242,15 +254,18 @@ function NPC:RemoveItem(item_id, quantity, slot) end
 
 function NPC:ResumeWandering() end
 
+---@overload fun(): nil
+---@overload fun(clear: boolean): nil
 ---@param x? number # TODO: definition of parameter
 ---@param y? number # TODO: definition of parameter
 ---@param z? number # TODO: definition of parameter
 ---@param heading? number # TODO: definition of parameter
----@overload fun(clear:boolean)
 function NPC:SaveGuardSpot(x, y, z, heading) end
 
+---@overload fun(npc_level: number): nil
 ---@param npc_level number # TODO: definition of parameter
-function NPC:ScaleNPC(npc_level) end
+---@param override_special_abilities? boolean
+function NPC:ScaleNPC(npc_level, override_special_abilities) end
 
 ---@param amt number # TODO: definition of parameter
 function NPC:SetCopper(amt) end
@@ -291,6 +306,8 @@ function NPC:SetSecSkill(skill_id) end
 ---@param amt number # TODO: definition of parameter
 function NPC:SetSilver(amt) end
 
+---@overload fun(box_size: number): nil
+---@overload fun(box_size: number, move_distance: number): nil
 ---@param box_size number # TODO: definition of parameter
 ---@param move_distance? number # TODO: definition of parameter
 ---@param move_delay? number # TODO: definition of parameter
@@ -395,10 +412,12 @@ function NPC:MultiQuestEnable() end
 ---@param c Client # C
 function NPC:ReturnHandinItems(c) end
 
+---@overload fun(payload_id: number): nil
 ---@param payload_id number # Payload id
 ---@param payload_value? string # Payload value
 function NPC:SendPayload(payload_id, payload_value) end
 
+---@overload fun(bucket_name: string, bucket_value: string): nil
 ---@param bucket_name string # Data bucket name
 ---@param bucket_value string # Data bucket value
 ---@param expiration? string # Expiration

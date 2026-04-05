@@ -13,6 +13,7 @@ function Inventory:CalcMaterialFromSlot(equipslot) end
 ---@param material number # TODO: definition of parameter (and type this)
 function Inventory:CalcSlotFromMaterial(material) end
 
+---@overload fun(slot_id: number): number
 ---@param slot_id number # TODO: definition of parameter (and type this)
 ---@param bag_slot? number # TODO: definition of parameter (and type this)
 ---@return number # Slot ID calculated from bag
@@ -31,16 +32,20 @@ function Inventory:CountAugmentEquippedByID(item_id) end
 ---@param item_id number # TODO: definition of parameter
 function Inventory:CountItemEquippedByID(item_id) end
 
+---@overload fun(slot_id: number): boolean
 ---@param slot_id number # TODO: definition of parameter
 ---@param quantity? number # TODO: definition of parameter
 function Inventory:DeleteItem(slot_id, quantity) end
 
+---@overload fun(for_bag: boolean, try_cursor: boolean): number
+---@overload fun(for_bag: boolean, try_cursor: boolean, min_size: number): number
 ---@param for_bag boolean # TODO: definition of parameter
 ---@param try_cursor boolean # TODO: definition of parameter
 ---@param min_size? number # TODO: definition of parameter (and type this)
 ---@param is_arrow? boolean # TODO: definition of parameter
 function Inventory:FindFreeSlot(for_bag, try_cursor, min_size, is_arrow) end
 
+---@overload fun(slot_id: number): ItemInst
 ---@param slot_id number # This correlates to the inventory slot location id
 ---@param bag_slot? number # Index offset within the bag, starting with 0
 ---@return ItemInst ItemInst # Item instance
@@ -52,15 +57,20 @@ function Inventory:GetSlotByItemInst(inst) end
 ---@param item_id number # TODO: definition of parameter
 function Inventory:HasAugmentEquippedByID(item_id) end
 
+---@overload fun(item_id: number): number
+---@overload fun(item_id: number, quantity: number): number
 ---@param item_id number # TODO: definition of parameter (and type this)
 ---@param quantity? number # TODO: definition of parameter (and type this)
 ---@param where? number # TODO: definition of parameter (and type this)
 function Inventory:HasItem(item_id, quantity, where) end
 
+---@overload fun(loregroup: number): number
 ---@param loregroup LoreGroup # TODO: definition of parameter
 ---@param where? number # TODO: definition of parameter (and type this)
 function Inventory:HasItemByLoreGroup(loregroup, where) end
 
+---@overload fun(use: number): number
+---@overload fun(use: number, quantity: number): number
 ---@param use number # TODO: definition of parameter (and type this)
 ---@param quantity? number # TODO: definition of parameter
 ---@param where? number # TODO: definition of parameter

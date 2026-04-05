@@ -19,6 +19,7 @@ function MySQLPreparedStmt:close() end
 
 function MySQLPreparedStmt:execute() end
 
+---@overload fun(): nil
 ---@param args table # Bind parameter values
 function MySQLPreparedStmt:execute(args) end
 
